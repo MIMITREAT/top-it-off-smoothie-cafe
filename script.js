@@ -82,4 +82,29 @@
     msg.textContent = text;
     msg.className = 'form-msg' + (cls ? ' ' + cls : '');
   }
+
+  /* Live board — fetch today's featured smoothies from /api/flavors-get */
+  var boardItems = document.getElementById('board-items');
+  var boardDate = document.getElementById('board-date');
+  if (boardItems) {
+    var esc = function (s) { return String(s).replace(/[&<>"']/g, function (c) { return ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' })[c]; }); };
+    var moreLink = '<a href="menu.html" class="board-chip board-chip--more">Full menu →</a>';
+    fetch('/api/flavors-get', { cache: 'no-store' })
+      .then(function (r) { return r.json(); })
+      .then(function (data) {
+        if (!data || !data.ok || !Array.isArray(data.items) || data.items.length === 0) {
+          boardItems.innerHTML = '<span class="board-empty">Fresh blends served all day — see the full menu.</span>' + moreLink;
+          return;
+        }
+        var html = data.items.map(function (it) {
+          var tag = it.tag ? '<span class="chip-tag">' + esc(it.tag) + '</span>' : '';
+          return '<span class="board-chip' + (it.tag ? ' board-chip--tag' : '') + '">' + esc(it.name) + tag + '</span>';
+        }).join('');
+        boardItems.innerHTML = html + moreLink;
+        if (boardDate && data.updatedAt) boardDate.textContent = 'Updated ' + data.updatedAt;
+      })
+      .catch(function () {
+        boardItems.innerHTML = '<span class="board-empty">Fresh blends served all day — see the full menu.</span>' + moreLink;
+      });
+  }
 })();

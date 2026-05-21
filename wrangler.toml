@@ -1,3 +1,8 @@
 name = "top-it-off"
 compatibility_date = "2026-05-20"
 pages_build_output_dir = "."
+
+# KV namespace — daily smoothie board + staff PINs
+[[kv_namespaces]]
+binding = "TOPITOFF_KV"
+id = "6a3b8c9f47c24c7aaaacff7a54a0d7f8"

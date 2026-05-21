@@ -133,6 +133,23 @@
       </div>
     </div>
 
+    <!-- LIVE BOARD — updates daily from /api/flavors-get -->
+    <section class="board" aria-labelledby="board-heading">
+      <div class="board-inner">
+        <div class="board-head">
+          <p class="board-eyebrow"><span class="board-dot"></span> Live · Updated Daily</p>
+          <h2 id="board-heading" class="board-title">On the blender <em>today</em></h2>
+          <p class="board-date" id="board-date">Today's featured specials</p>
+        </div>
+        <div class="board-items" id="board-items" aria-live="polite">
+          <span class="board-chip board-chip--loading">Loading</span>
+          <span class="board-chip board-chip--loading">Loading</span>
+          <span class="board-chip board-chip--loading">Loading</span>
+          <span class="board-chip board-chip--loading">Loading</span>
+        </div>
+      </div>
+    </section>
+
     <!-- WHY / FEATURES -->
     <section class="section">
       <div class="section-inner">
@@ -290,11 +307,11 @@
       </div>
     </div>
     <div class="footer-bottom">
-      <span>&copy; <span id="year"></span> Top it off Smoothie Cafe. All rights reserved.</span>
+      <span>&copy; <span id="year"></span> Top it off Smoothie Cafe. All rights reserved. <a href="staff.html" style="opacity:.35;margin-left:.35rem;">Staff</a></span>
       <span>Crafted by <a href="https://vivereweb.com" target="_blank" rel="noopener">Vivere Web</a></span>
     </div>
   </footer>
 
-  <script src="script.js?v=1"></script>
+  <script src="script.js?v=2"></script>
 </body>
 </html>

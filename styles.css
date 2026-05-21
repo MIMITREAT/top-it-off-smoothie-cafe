@@ -392,6 +392,25 @@ body > * { position: relative; z-index: 1; }
 .scroll-fade-up:nth-child(3) { transition-delay: .16s; }
 .scroll-fade-up:nth-child(4) { transition-delay: .24s; }
 
+/* ── LIVE BOARD STRIP ── */
+.board { background: linear-gradient(180deg, var(--cream) 0%, var(--cream-2) 100%); border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); padding: clamp(2.25rem, 4vw, 3rem) 1.25rem; }
+.board-inner { max-width: 1100px; margin: 0 auto; display: grid; grid-template-columns: 1fr; gap: 1.25rem; }
+@media (min-width: 760px) { .board-inner { grid-template-columns: 290px 1fr; gap: 2.5rem; align-items: center; } }
+.board-eyebrow { display: flex; align-items: center; gap: .55rem; font-size: .72rem; font-weight: 700; letter-spacing: .2em; text-transform: uppercase; color: var(--accent); margin-bottom: .5rem; }
+.board-dot { width: 8px; height: 8px; border-radius: 50%; background: var(--accent-alt); box-shadow: 0 0 0 0 rgba(111,191,68,.6); animation: pulse 2s infinite; }
+.board-title { font-family: var(--font-display); font-size: clamp(1.5rem, 3vw, 2rem); font-weight: 700; color: var(--green-deep); line-height: 1.1; }
+.board-title em { font-style: italic; color: var(--accent); }
+.board-date { font-size: .85rem; color: var(--fg-soft); margin-top: .35rem; }
+.board-items { display: flex; flex-wrap: wrap; gap: .6rem; align-items: center; }
+.board-chip { background: #fff; border: 1px solid var(--line-strong); color: var(--green-deep); padding: .55rem 1rem; border-radius: 100px; font-size: .9rem; font-weight: 500; white-space: nowrap; box-shadow: var(--shadow-sm); }
+.board-chip--tag { position: relative; border-color: var(--accent-alt); }
+.board-chip .chip-tag { display: inline-block; margin-left: .45rem; font-size: .62rem; font-weight: 700; letter-spacing: .04em; text-transform: uppercase; color: #fff; background: var(--accent); padding: .12rem .4rem; border-radius: 100px; vertical-align: middle; }
+.board-chip--more { background: var(--accent); color: #fff; border-color: var(--accent); text-decoration: none; transition: background .2s; }
+.board-chip--more:hover { background: var(--accent-dark); }
+.board-chip--loading { color: transparent; background: #e8eee3; border-color: transparent; width: 96px; animation: boardSkel 1.4s ease-in-out infinite; }
+@keyframes boardSkel { 0%,100% { opacity: .5; } 50% { opacity: .85; } }
+.board-empty { color: var(--fg-soft); font-style: italic; font-size: .92rem; }
+
 /* Section eyebrow accent line */
 .section-eyebrow { position: relative; padding-left: 0; }
 .section-head .section-eyebrow::after {
