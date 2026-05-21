@@ -25,8 +25,8 @@
   <meta name="twitter:description" content="Hand-blended fruit smoothies, açaí bowls & fresh juice in Grand Junction, CO. Top it off your way.">
   <meta name="twitter:image" content="https://top-it-off.pages.dev/assets/logo.jpg">
 
-  <link rel="preload" href="styles.css?v=7" as="style">
-  <link rel="stylesheet" href="styles.css?v=7">
+  <link rel="preload" href="styles.css?v=11" as="style">
+  <link rel="stylesheet" href="styles.css?v=11">
   <link rel="prefetch" href="menu.html">
   <link rel="prefetch" href="about.html">
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -101,6 +101,14 @@
     </nav>
   </header>
 
+  <a class="announce" href="grand-opening.html">
+    <span class="announce-inner">
+      <span class="announce-tag">Grand Opening</span>
+      <span class="announce-text">Come see us <strong>Saturday, May 30th</strong> — join us for opening weekend!</span>
+      <span class="announce-cta">See details&nbsp;<span aria-hidden="true">→</span></span>
+    </span>
+  </a>
+
   <main id="main-content" tabindex="-1">
 
     <!-- HERO -->
@@ -144,6 +152,32 @@
       </div>
     </div>
 
+    <!-- ENERGY STRIP — free-floating stat cards -->
+    <section class="energy-strip" aria-label="Why guests love us">
+      <div class="energy-strip-inner">
+        <div class="energy-card scroll-fade-up">
+          <span class="energy-card-icon" aria-hidden="true">🍓</span>
+          <div class="energy-stat-number"><span class="energy-stat-num" data-count="100">100</span><span class="energy-stat-unit">%</span></div>
+          <p class="energy-stat-label">Real Fruit</p>
+        </div>
+        <div class="energy-card scroll-fade-up">
+          <span class="energy-card-icon" aria-hidden="true">🥤</span>
+          <div class="energy-stat-number"><span class="energy-stat-num" data-count="20">20</span><span class="energy-stat-unit">+</span></div>
+          <p class="energy-stat-label">Smoothie Flavors</p>
+        </div>
+        <div class="energy-card scroll-fade-up">
+          <span class="energy-card-icon" aria-hidden="true">⚡</span>
+          <div class="energy-stat-number"><span class="energy-stat-word">Made&nbsp;To&nbsp;Order</span></div>
+          <p class="energy-stat-label">Every Single Cup</p>
+        </div>
+        <div class="energy-card scroll-fade-up">
+          <span class="energy-card-icon" aria-hidden="true">📍</span>
+          <div class="energy-stat-number"><span class="energy-stat-word">GJ's&nbsp;Go&#8209;To</span></div>
+          <p class="energy-stat-label">Grand Junction's Spot</p>
+        </div>
+      </div>
+    </section>
+
     <!-- LIVE BOARD — updates daily from /api/flavors-get -->
     <section class="board" aria-labelledby="board-heading">
       <div class="board-inner">
@@ -161,52 +195,40 @@
       </div>
     </section>
 
-    <!-- WHY / FEATURES -->
-    <section class="section section--fruit-bg">
-      <picture>
-        <source srcset="assets/acai.webp" type="image/webp">
-        <img class="section-fruit-bg-img" src="assets/acai.jpeg" alt="" aria-hidden="true" loading="lazy">
-      </picture>
+    <!-- WHY / FEATURES — dark bento -->
+    <section class="section section--dark">
       <div class="section-inner">
         <div class="section-head scroll-fade-up">
           <span class="section-eyebrow">Why Top it off</span>
           <h2 class="section-title">Built on <em>real fruit</em> &amp; good vibes</h2>
           <p class="section-lead">Every cup is blended to order — no powders pretending to be fruit, no syrupy shortcuts.</p>
         </div>
-        <ul class="feature-list" role="list">
-          <li class="feature-item scroll-fade-up">
-            <span class="feature-icon" aria-hidden="true">🍓</span>
-            <div class="feature-body">
-              <h3>Real Fruit, Always</h3>
-              <p>Strawberries, bananas, blueberries, mango — blended fresh so every sip actually tastes like fruit.</p>
-            </div>
-          </li>
-          <li class="feature-item scroll-fade-up">
-            <span class="feature-icon" aria-hidden="true">🥣</span>
-            <div class="feature-body">
-              <h3>Loaded Bowls</h3>
-              <p>Thick smoothie bowls topped with granola, fresh fruit, and your favorite crunch. Build it your way.</p>
-            </div>
-          </li>
-          <li class="feature-item scroll-fade-up">
-            <span class="feature-icon" aria-hidden="true">⚡</span>
-            <div class="feature-body">
-              <h3>Boost It</h3>
-              <p>Add protein, greens, or an energy boost. A treat that actually fuels your day.</p>
-            </div>
-          </li>
-          <li class="feature-item scroll-fade-up">
-            <span class="feature-icon" aria-hidden="true">🌿</span>
-            <div class="feature-body">
-              <h3>Better-For-You</h3>
-              <p>Dairy-free, vegan, and lighter options on the board — something fresh for everyone.</p>
-            </div>
-          </li>
-        </ul>
+        <div class="bento-why">
+          <div class="bento-card scroll-fade-up">
+            <span class="bento-icon" aria-hidden="true">🍓</span>
+            <h3>Real Fruit, Always</h3>
+            <p>Strawberries, bananas, blueberries, mango — blended fresh so every sip actually tastes like fruit.</p>
+          </div>
+          <div class="bento-card scroll-fade-up">
+            <span class="bento-icon" aria-hidden="true">🥣</span>
+            <h3>Loaded Bowls</h3>
+            <p>Thick smoothie bowls topped with granola, fresh fruit, and your favorite crunch. Build it your way.</p>
+          </div>
+          <div class="bento-card scroll-fade-up">
+            <span class="bento-icon" aria-hidden="true">⚡</span>
+            <h3>Boost It</h3>
+            <p>Add protein, greens, or an energy boost. A treat that actually fuels your day.</p>
+          </div>
+          <div class="bento-card scroll-fade-up">
+            <span class="bento-icon" aria-hidden="true">🌿</span>
+            <h3>Better-For-You</h3>
+            <p>Dairy-free, vegan, and lighter options on the board — something fresh for everyone.</p>
+          </div>
+        </div>
       </div>
     </section>
 
-    <div class="wave" aria-hidden="true"><svg viewBox="0 0 1440 80" preserveAspectRatio="none"><path d="M0,32 C240,72 480,4 720,30 C960,56 1200,74 1440,34 L1440,80 L0,80 Z" fill="#e4f1da"/></svg></div>
+    <div class="wave wave--dark-to-alt" aria-hidden="true"><svg viewBox="0 0 1440 80" preserveAspectRatio="none"><path d="M0,32 C240,72 480,4 720,30 C960,56 1200,74 1440,34 L1440,80 L0,80 Z" fill="#e4f1da"/></svg></div>
 
     <!-- SPLIT INTRO -->
     <section class="section section--alt">
@@ -244,8 +266,10 @@
       </div>
     </section>
 
+    <div class="wave wave--flip" aria-hidden="true"><svg viewBox="0 0 1440 80" preserveAspectRatio="none"><path d="M0,32 C240,72 480,4 720,30 C960,56 1200,74 1440,34 L1440,80 L0,80 Z" fill="#091d12"/></svg></div>
+
     <!-- PULL QUOTE -->
-    <section class="pull-quote scroll-fade-up" aria-label="Our promise">
+    <section class="pull-quote pull-quote--dark scroll-fade-up" aria-label="Our promise">
       <div class="pull-quote-inner">
         <span class="pull-quote-mark" aria-hidden="true">"</span>
         <p class="pull-quote-text">Real fruit. Made to order.<br><em>Topped your way.</em></p>
@@ -253,47 +277,37 @@
       </div>
     </section>
 
-    <div class="wave" aria-hidden="true"><svg viewBox="0 0 1440 80" preserveAspectRatio="none"><path d="M0,32 C240,72 480,4 720,30 C960,56 1200,74 1440,34 L1440,80 L0,80 Z" fill="#e4f1da"/></svg></div>
+    <div class="wave wave--quote-to-alt" aria-hidden="true"><svg viewBox="0 0 1440 80" preserveAspectRatio="none"><path d="M0,32 C240,72 480,4 720,30 C960,56 1200,74 1440,34 L1440,80 L0,80 Z" fill="#e4f1da"/></svg></div>
 
     <!-- VISIT -->
-    <section class="section section--alt" id="visit">
+    <section class="section section--alt section--visit" id="visit">
       <div class="section-inner">
         <div class="section-head scroll-fade-up">
           <span class="section-eyebrow">Visit Us</span>
           <h2 class="section-title">Come <em>top it off</em></h2>
         </div>
-        <div class="visit-strip scroll-fade-up">
-          <div class="visit-item">
-            <span class="visit-item-icon" aria-hidden="true">📍</span>
-            <div class="visit-item-body">
-              <strong>Location</strong>
-              <p>2692 US-50, Suite I<br>Grand Junction, CO 81503</p>
-            </div>
+        <div class="visit-cards">
+          <div class="visit-card scroll-fade-up">
+            <span class="visit-card-icon" aria-hidden="true">📍</span>
+            <h3>Location</h3>
+            <p>2692 US-50, Suite I<br>Grand Junction, CO 81503</p>
           </div>
-          <div class="visit-divider" aria-hidden="true"></div>
-          <div class="visit-item">
-            <span class="visit-item-icon" aria-hidden="true">🕒</span>
-            <div class="visit-item-body">
-              <strong>Hours</strong>
-              <p><span class="ph">[Mon–Sat 8am–7pm · Sun 9am–5pm — confirm]</span></p>
-            </div>
+          <div class="visit-card scroll-fade-up">
+            <span class="visit-card-icon" aria-hidden="true">🕒</span>
+            <h3>Hours</h3>
+            <p><span class="ph">[Mon–Sat 8am–7pm · Sun 9am–5pm — confirm]</span></p>
           </div>
-          <div class="visit-divider" aria-hidden="true"></div>
-          <div class="visit-item">
-            <span class="visit-item-icon" aria-hidden="true">📞</span>
-            <div class="visit-item-body">
-              <strong>Call / Text</strong>
-              <p><span class="ph">[(970) XXX-XXXX]</span></p>
-            </div>
+          <div class="visit-card scroll-fade-up">
+            <span class="visit-card-icon" aria-hidden="true">📞</span>
+            <h3>Call / Text</h3>
+            <p><span class="ph">[(970) XXX-XXXX]</span></p>
           </div>
         </div>
       </div>
     </section>
 
-    <div class="wave wave--flip" aria-hidden="true"><svg viewBox="0 0 1440 80" preserveAspectRatio="none"><path d="M0,32 C240,72 480,4 720,30 C960,56 1200,74 1440,34 L1440,80 L0,80 Z" fill="#0e3a21"/></svg></div>
-
     <!-- CONTACT -->
-    <section class="section section--green" id="contact">
+    <section class="section section--green section--contact-overlap" id="contact">
       <div class="section-inner">
         <div class="contact-grid">
           <div class="contact-info">
@@ -356,6 +370,6 @@
     </div>
   </footer>
 
-  <script src="script.js?v=4"></script>
+  <script src="script.js?v=6"></script>
 </body>
 </html>

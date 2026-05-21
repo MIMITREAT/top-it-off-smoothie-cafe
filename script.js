@@ -1,4 +1,4 @@
-/* Top it off Smoothie Cafe — Vivere Framework v4 (no client secrets) */
+/* Top it off Smoothie Cafe — Vivere Framework v6 (no client secrets) */
 (function () {
   'use strict';
   document.documentElement.classList.add('js-loaded');
@@ -7,12 +7,25 @@
   var yr = document.getElementById('year');
   if (yr) yr.textContent = new Date().getFullYear();
 
-  /* Navbar scroll state + scroll progress */
+  /* Back-to-top button (injected so every page gets it) */
+  var toTop = document.createElement('button');
+  toTop.className = 'to-top';
+  toTop.type = 'button';
+  toTop.setAttribute('aria-label', 'Back to top');
+  toTop.innerHTML = '<svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 5l-7 7h4v7h6v-7h4z" fill="currentColor"/></svg>';
+  document.body.appendChild(toTop);
+  toTop.addEventListener('click', function () {
+    var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    window.scrollTo({ top: 0, behavior: reduce ? 'auto' : 'smooth' });
+  });
+
+  /* Navbar scroll state + scroll progress + back-to-top visibility */
   var navbar = document.querySelector('.navbar');
   var progress = document.querySelector('.scroll-progress');
   function onScroll() {
     var y = window.scrollY || window.pageYOffset;
     if (navbar) navbar.classList.toggle('is-scrolled', y > 8);
+    toTop.classList.toggle('is-visible', y > 600);
     if (progress) {
       var h = document.documentElement.scrollHeight - window.innerHeight;
       progress.style.width = (h > 0 ? (y / h) * 100 : 0) + '%';
@@ -106,18 +119,37 @@
     animateCursor();
   }
 
-  /* ── Card tilt on mousemove ── */
-  document.querySelectorAll('.card').forEach(function (card) {
+  /* ── Card + bento tilt on mousemove (3D) ── */
+  document.querySelectorAll('.card, .bento-card').forEach(function (card) {
     card.addEventListener('mousemove', function (e) {
       var r = card.getBoundingClientRect();
       var x = (e.clientX - r.left) / r.width  - 0.5;
       var y = (e.clientY - r.top)  / r.height - 0.5;
-      card.style.transform = 'perspective(800px) rotateY(' + (x * 10) + 'deg) rotateX(' + (-y * 8) + 'deg) translateY(-6px)';
+      card.style.transform = 'perspective(900px) rotateY(' + (x * 9) + 'deg) rotateX(' + (-y * 7) + 'deg) translateY(-6px)';
     });
     card.addEventListener('mouseleave', function () {
       card.style.transform = '';
     });
   });
+
+  /* ── Hero parallax — photo & content drift opposite for spatial depth ── */
+  var hero = document.querySelector('.hero');
+  var heroBg = document.querySelector('.hero-bg');
+  var heroInner = document.querySelector('.hero-inner');
+  if (hero && heroBg && window.matchMedia('(pointer: fine)').matches &&
+      !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    hero.addEventListener('mousemove', function (e) {
+      var r = hero.getBoundingClientRect();
+      var nx = (e.clientX - r.left) / r.width  - 0.5;
+      var ny = (e.clientY - r.top)  / r.height - 0.5;
+      heroBg.style.transform = 'scale(1.06) translate(' + (nx * 16) + 'px,' + (ny * 16) + 'px)';
+      if (heroInner) heroInner.style.transform = 'translate(' + (nx * -8) + 'px,' + (ny * -8) + 'px)';
+    });
+    hero.addEventListener('mouseleave', function () {
+      heroBg.style.transform = '';
+      if (heroInner) heroInner.style.transform = '';
+    });
+  }
 
   /* ── Magnetic buttons ── */
   document.querySelectorAll('.btn--primary, .btn--green').forEach(function (btn) {
@@ -144,6 +176,31 @@
         window.location.href = href;
       });
     });
+  }
+
+  /* ── Energy strip stat counters ── */
+  var statNums = document.querySelectorAll('.energy-stat-num');
+  if ('IntersectionObserver' in window && statNums.length) {
+    var counterIO = new IntersectionObserver(function (entries) {
+      entries.forEach(function (en) {
+        if (!en.isIntersecting) return;
+        var el = en.target;
+        var target = parseInt(el.getAttribute('data-count'), 10);
+        if (!target) { counterIO.unobserve(el); return; }
+        var duration = 1100;
+        var startTs = null;
+        function step(ts) {
+          if (!startTs) startTs = ts;
+          var p = Math.min((ts - startTs) / duration, 1);
+          var eased = 1 - Math.pow(1 - p, 3);
+          el.textContent = Math.round(eased * target);
+          if (p < 1) requestAnimationFrame(step);
+        }
+        requestAnimationFrame(step);
+        counterIO.unobserve(el);
+      });
+    }, { threshold: 0.6 });
+    statNums.forEach(function (el) { counterIO.observe(el); });
   }
 
   /* Live board — fetch today's ice cream flavors from /api/flavors-get */
