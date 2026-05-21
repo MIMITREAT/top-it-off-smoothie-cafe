@@ -580,6 +580,20 @@
       .section-band { margin: 0 -1.25rem; padding: 2rem 1.25rem; }
       .report-footer { padding: 1rem 1.25rem; }
     }
+    /* ── BACK TO TOP ── */
+    .report-totop {
+      position: fixed; right: 1.5rem; bottom: 1.5rem; z-index: 200;
+      width: 46px; height: 46px; border-radius: 50%;
+      background: var(--tio-pink); color: #fff;
+      display: grid; place-items: center; border: none; cursor: pointer;
+      box-shadow: 0 8px 22px -6px rgba(232,25,125,.6);
+      opacity: 0; visibility: hidden; transform: translateY(12px);
+      transition: opacity .3s ease, transform .3s ease, visibility .3s, background .2s;
+    }
+    .report-totop.is-visible { opacity: 1; visibility: visible; transform: none; }
+    .report-totop:hover { background: var(--tio-pink-dk); transform: translateY(-3px); }
+    .report-totop svg { width: 20px; height: 20px; }
+    @media print { .report-totop { display: none !important; } }
   </style>
 </head>
 <body>
@@ -1404,6 +1418,19 @@
   <span>Prepared for Top it off Smoothie Cafe · May 2026 · Confidential</span>
   <span>staging.top-it-off.pages.dev</span>
 </div>
+
+<button class="report-totop" type="button" aria-label="Back to top" onclick="window.scrollTo({top:0,behavior:'smooth'})">
+  <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 5l-7 7h4v7h6v-7h4z" fill="currentColor"/></svg>
+</button>
+<script>
+  (function(){
+    var btn = document.querySelector('.report-totop');
+    if (!btn) return;
+    function onScroll(){ btn.classList.toggle('is-visible', (window.scrollY || window.pageYOffset) > 500); }
+    window.addEventListener('scroll', onScroll, { passive: true });
+    onScroll();
+  })();
+</script>
 
 </body>
 </html>
