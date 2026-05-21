@@ -1,5 +1,5 @@
 /* ════════════════════════════════════════════════════
-   VIVERE FRAMEWORK — styles.css v17 — Top it off Smoothie Cafe
+   VIVERE FRAMEWORK — styles.css v18 — Top it off Smoothie Cafe
    Brand: forest green #14502e · hot pink #e8197d · leaf #6fbf44
    ════════════════════════════════════════════════════ */
 
@@ -220,6 +220,8 @@ body > * { position: relative; z-index: 1; }
 .section { padding: var(--section-pad-y) 1.25rem; }
 .section--alt {
   background: #e4f1da;
+  /* compensate for section--dark diagonal overlap */
+  padding-top: calc(var(--section-pad-y) + 3vw);
   box-shadow: inset 0 1px 0 rgba(111,191,68,.18), inset 0 -1px 0 rgba(111,191,68,.12);
 }
 .section--warm { background: linear-gradient(160deg, #fff6fb 0%, #ffffff 100%); }
@@ -770,8 +772,14 @@ body > * { position: relative; z-index: 1; }
 /* ── ENERGY STRIP — free-floating frosted cards on rich pink ── */
 .energy-strip {
   color: #fff;
-  padding: clamp(3rem, 6vw, 5rem) 1.25rem;
+  /* extra bottom padding compensates for diagonal clip */
+  padding: clamp(3rem, 6vw, 5rem) 1.25rem calc(clamp(3rem,6vw,5rem) + 5vw);
   position: relative; overflow: hidden; isolation: isolate;
+  /* diagonal bottom-right cut — section flows into board below */
+  clip-path: polygon(0 0, 100% 0, 100% calc(100% - 5vw), 0 100%);
+  /* pull board section up so it overlaps the cut edge */
+  margin-bottom: -4vw;
+  z-index: 2;
   background:
     radial-gradient(120% 140% at 15% -10%, rgba(242,74,158,.55) 0%, transparent 55%),
     radial-gradient(120% 140% at 100% 120%, rgba(138,12,65,.55) 0%, transparent 55%),
@@ -847,6 +855,12 @@ body > * { position: relative; z-index: 1; }
   background: linear-gradient(160deg, #0e3a21 0%, #091e14 100%);
   color: #fff;
   position: relative; isolation: isolate;
+  /* compensate for board diagonal overlap */
+  padding-top: calc(var(--section-pad-y) + 3.5vw);
+  /* diagonal bottom flowing into next light section */
+  clip-path: polygon(0 0, 100% 0, 100% calc(100% - 4vw), 0 100%);
+  margin-bottom: -3vw;
+  z-index: 1;
 }
 /* photo background layer for dark sections that opt in */
 .section-bg {
@@ -936,8 +950,13 @@ body > * { position: relative; z-index: 1; }
 .board {
   background: #0f1410;
   border-top: none; border-bottom: none;
-  padding: clamp(2.5rem, 5vw, 4rem) 1.25rem;
+  /* top padding compensates for energy strip overlap; extra bottom for diagonal */
+  padding: calc(clamp(2.5rem,5vw,4rem) + 5vw) 1.25rem calc(clamp(2.5rem,5vw,4rem) + 4vw);
   position: relative; isolation: isolate;
+  /* diagonal bottom-left cut flowing into dark bento below */
+  clip-path: polygon(0 0, 100% 0, 100% 100%, 0 calc(100% - 4vw));
+  margin-bottom: -3.5vw;
+  z-index: 1;
 }
 /* ice cream photo layer */
 .board-bg {
@@ -947,10 +966,14 @@ body > * { position: relative; z-index: 1; }
   opacity: 0.55;
   mix-blend-mode: normal;
 }
-/* dark scrim — lighter so photo shows through */
+/* dark scrim + top/bottom fade so photo melts in from the edges */
 .board::after {
   content: ''; position: absolute; inset: 0; z-index: 0; pointer-events: none;
-  background: linear-gradient(90deg, rgba(15,20,16,.52) 0%, rgba(15,20,16,.22) 55%, rgba(15,20,16,.45) 100%);
+  background:
+    /* top fade — eases in from black */
+    linear-gradient(to bottom, rgba(15,20,16,.85) 0%, rgba(15,20,16,0) 22%, rgba(15,20,16,0) 78%, rgba(15,20,16,.85) 100%),
+    /* left/right scrim for text area */
+    linear-gradient(90deg, rgba(15,20,16,.52) 0%, rgba(15,20,16,.18) 55%, rgba(15,20,16,.40) 100%);
 }
 .board::before {
   content: ''; position: absolute; inset: 0; z-index: 1; pointer-events: none;
