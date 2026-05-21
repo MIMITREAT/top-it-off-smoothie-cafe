@@ -323,7 +323,7 @@ body > * { position: relative; z-index: 1; }
 }
 .footer-brand-sub {
   font-size: .72rem; font-weight: 700; letter-spacing: .14em; text-transform: uppercase;
-  color: var(--accent-light); margin-bottom: .9rem; display: block;
+  color: rgba(255,255,255,.65); margin-bottom: .9rem; display: block;
 }
 .footer-tagline { font-size: .9rem; opacity: .68; max-width: 38ch; line-height: 1.7; }
 .footer-address { font-style: normal; }
@@ -442,8 +442,8 @@ body > * { position: relative; z-index: 1; }
 .board-chip { background: #fff; border: 1px solid var(--line-strong); color: var(--green-deep); padding: .55rem 1rem; border-radius: 100px; font-size: .9rem; font-weight: 500; white-space: nowrap; box-shadow: var(--shadow-sm); }
 .board-chip--tag { position: relative; border-color: var(--accent-alt); }
 .board-chip .chip-tag { display: inline-block; margin-left: .45rem; font-size: .65rem; font-weight: 700; letter-spacing: .04em; text-transform: uppercase; color: #fff; background: var(--accent-dark); padding: .14rem .45rem; border-radius: 100px; vertical-align: middle; }
-.board-chip--more { background: var(--accent); color: #fff; border-color: var(--accent); text-decoration: none; transition: background .2s; }
-.board-chip--more:hover { background: var(--accent-dark); }
+.board-chip--more { background: var(--accent-dark); color: #fff; border-color: var(--accent-dark); text-decoration: none; transition: background .2s; }
+.board-chip--more:hover { background: #9e0e4d; }
 .board-chip--loading { color: transparent; background: #e8eee3; border-color: transparent; width: 96px; animation: boardSkel 1.4s ease-in-out infinite; }
 @keyframes boardSkel { 0%,100% { opacity: .5; } 50% { opacity: .85; } }
 .board-empty { color: var(--fg-soft); font-style: italic; font-size: .92rem; }
