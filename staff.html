@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
   <meta name="robots" content="noindex, nofollow">
-  <title>Staff — Today's Board | Top it off</title>
+  <title>Staff — What's Scooping Today | Top it off</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap">
   <style>
@@ -23,9 +23,10 @@
     .card{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:20px;margin-bottom:18px;box-shadow:0 1px 3px rgba(0,0,0,.06);}
     .card-title{font-family:'Playfair Display',serif;font-size:17px;font-weight:700;color:var(--green);margin-bottom:4px;}
     .card-sub{font-size:13px;color:var(--muted);margin-bottom:16px;}
+    .note{background:#fff8ec;border:1px solid #f0e2c2;color:#8a6d1a;font-size:12.5px;padding:10px 12px;border-radius:10px;margin-bottom:16px;}
     label{display:block;font-size:13px;font-weight:600;color:var(--green);margin-bottom:6px;margin-top:12px;}
     label:first-of-type{margin-top:0;}
-    input[type=text],input[type=password]{width:100%;padding:12px 14px;border:1px solid var(--border);border-radius:10px;font-size:16px;font-family:inherit;background:#fdfffb;}
+    input[type=text]{width:100%;padding:12px 14px;border:1px solid var(--border);border-radius:10px;font-size:16px;font-family:inherit;background:#fdfffb;}
     input:focus{outline:none;border-color:var(--accent);box-shadow:0 0 0 3px rgba(232,25,125,.12);}
     .row{display:flex;gap:8px;}
     .row input{flex:1;}
@@ -33,11 +34,8 @@
     .btn:active{transform:translateY(1px);}
     .btn--primary{background:var(--accent);color:#fff;width:100%;}
     .btn--primary:hover{background:var(--accent-dark);}
-    .btn--green{background:var(--green);color:#fff;}
-    .btn--green:hover{background:var(--green-mid);}
     .btn--ghost{background:#eef3ea;color:var(--green);}
     .btn--sm{padding:9px 14px;font-size:14px;}
-    .hidden{display:none!important;}
     .items{list-style:none;margin:14px 0 0;display:flex;flex-direction:column;gap:8px;}
     .item{display:flex;align-items:center;gap:10px;background:#f7faf4;border:1px solid var(--border);border-radius:10px;padding:10px 12px;}
     .item-name{flex:1;font-weight:500;}
@@ -51,34 +49,21 @@
     .msg.ok{color:var(--ok);} .msg.err{color:var(--err);}
     .meta{font-size:12px;color:var(--muted);text-align:center;margin-top:10px;}
     .count{font-size:12px;color:var(--muted);margin-top:8px;}
+    .backlink{display:inline-block;margin-top:8px;font-size:13px;color:var(--accent);text-decoration:underline;}
   </style>
 </head>
 <body>
   <div class="topbar">
-    <span aria-hidden="true">🥤</span>
+    <span aria-hidden="true">🍦</span>
     <span class="topbar-title">Top <em>it</em> off · Staff</span>
-    <span class="topbar-sub">Today's Board</span>
+    <span class="topbar-sub">Flavor Board</span>
   </div>
 
   <div class="wrap">
-    <!-- LOGIN -->
-    <div class="card" id="login-card">
-      <h2 class="card-title">Staff sign-in</h2>
-      <p class="card-sub">Enter your name and PIN to update today's board.</p>
-      <label for="s-name">Your name</label>
-      <input type="text" id="s-name" autocomplete="off" placeholder="e.g. Sam">
-      <label for="s-pin">PIN</label>
-      <input type="password" id="s-pin" inputmode="numeric" autocomplete="off" placeholder="••••">
-      <button class="btn btn--green" style="width:100%;margin-top:16px;" id="login-btn">Continue</button>
-      <p class="msg" id="login-msg" role="status"></p>
-      <p style="text-align:center;margin-top:16px;font-size:13px;"><a href="#" id="preview-link" style="color:var(--accent);text-decoration:underline;">Preview the board editor →</a></p>
-    </div>
-
-    <!-- EDITOR -->
-    <div class="card hidden" id="editor-card">
-      <div id="demo-banner" class="hidden" style="background:#fff4f9;border:1px solid #f6c6dd;color:var(--accent-dark);font-size:13px;padding:10px 12px;border-radius:10px;margin-bottom:14px;">Preview mode — this is the staff view. Sign in with a PIN to publish changes.</div>
+    <div class="card" id="editor-card">
+      <p class="note">PIN sign-in is turned off for now — anyone with this link can update the board. Sign-in can be added later.</p>
       <h2 class="card-title">What's Scooping Today</h2>
-      <p class="card-sub">Signed in as <strong id="who"></strong>. Add the Mimi's ice cream flavors available today, then publish to the homepage board.</p>
+      <p class="card-sub">Add the Mimi's ice cream flavors available today, then publish to the homepage board.</p>
 
       <label for="i-name">Add a flavor</label>
       <div class="row">
@@ -93,15 +78,18 @@
       <ul class="items" id="items"></ul>
       <p class="count" id="count"></p>
 
-      <button class="btn btn--primary" style="margin-top:18px;" id="publish-btn">Publish today's board</button>
+      <label for="s-name" style="margin-top:18px;">Your name (optional)</label>
+      <input type="text" id="s-name" autocomplete="off" placeholder="e.g. Sam">
+
+      <button class="btn btn--primary" style="margin-top:16px;" id="publish-btn">Publish today's board</button>
       <p class="msg" id="pub-msg" role="status"></p>
       <p class="meta" id="meta"></p>
+      <a href="index.html" class="backlink">← Back to site</a>
     </div>
   </div>
 
   <script>
   (function(){
-    var creds = { name:'', pin:'' };
     var board = [];
     var PRESETS = ['Vanilla Bean','Chocolate','Strawberry','Rainbow Sherbet','Cookies & Cream','Mint Chip','Salted Caramel','Black Cherry','Toasted Marshmallow','Butterfinger','Peanut Butter','Blueberry','Cookie Dough','Lemon Cookie'];
 
@@ -117,7 +105,7 @@
           '<button class="item-del" aria-label="Remove" data-i="'+idx+'">&times;</button>';
         ul.appendChild(li);
       });
-      $('count').textContent = board.length + ' item' + (board.length===1?'':'s') + ' on the board';
+      $('count').textContent = board.length + ' flavor' + (board.length===1?'':'s') + ' on the board';
     }
 
     function renderPresets(){
@@ -154,48 +142,25 @@
       }).catch(function(){});
     }
 
-    $('preview-link').onclick = function(e){
-      e.preventDefault();
-      $('who').textContent = 'Preview';
-      $('login-card').classList.add('hidden');
-      $('editor-card').classList.remove('hidden');
-      $('demo-banner').classList.remove('hidden');
-      renderPresets();
-      board = [{name:'Vanilla Bean',tag:'Classic'},{name:'Rainbow Sherbet',tag:''},{name:'Salted Caramel',tag:'Popular'},{name:'Black Cherry',tag:'New'}];
-      renderItems();
-      var pb = $('publish-btn');
-      pb.textContent = 'Sign in to publish';
-      pb.disabled = true; pb.style.opacity = '.55'; pb.style.cursor = 'not-allowed';
-      $('meta').textContent = 'Example board for preview only.';
-    };
-
-    $('login-btn').onclick = function(){
-      var name = $('s-name').value.trim(), pin = $('s-pin').value.trim();
-      var m = $('login-msg');
-      if(!name || !pin){ m.textContent='Enter your name and PIN.'; m.className='msg err'; return; }
-      creds.name = name; creds.pin = pin;
-      $('who').textContent = name;
-      $('login-card').classList.add('hidden');
-      $('editor-card').classList.remove('hidden');
-      renderPresets(); loadCurrent();
-    };
-
     $('publish-btn').onclick = function(){
       var m = $('pub-msg');
-      if(!board.length){ m.textContent='Add at least one item first.'; m.className='msg err'; return; }
+      if(!board.length){ m.textContent='Add at least one flavor first.'; m.className='msg err'; return; }
       m.textContent='Publishing…'; m.className='msg';
       fetch('/api/flavors-set',{
         method:'POST', headers:{'Content-Type':'application/json'},
-        body: JSON.stringify({ name:creds.name, pin:creds.pin, items:board })
+        body: JSON.stringify({ name: $('s-name').value.trim(), items: board })
       }).then(function(r){return r.json();}).then(function(d){
         if(d && d.ok){
-          m.textContent='✓ Board published! ('+d.count+' items)'; m.className='msg ok';
+          m.textContent='✓ Board published! ('+d.count+' flavors)'; m.className='msg ok';
           $('meta').textContent='Last updated '+d.updatedAt+' by '+d.updatedBy;
         } else {
           m.textContent = (d && d.error) ? d.error : 'Could not publish.'; m.className='msg err';
         }
       }).catch(function(){ m.textContent='Network error — try again.'; m.className='msg err'; });
     };
+
+    renderPresets();
+    loadCurrent();
   })();
   </script>
 </body>

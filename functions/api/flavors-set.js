@@ -28,11 +28,8 @@ export async function onRequest(context) {
     return new Response(JSON.stringify({ ok: false, error: 'Invalid request body' }), { status: 400, headers });
   }
 
-  const { name, pin, items } = body;
+  const { name, items } = body;
 
-  if (!name || typeof name !== 'string' || !pin || typeof pin !== 'string') {
-    return new Response(JSON.stringify({ ok: false, error: 'Name and PIN are required' }), { status: 400, headers });
-  }
   if (!Array.isArray(items) || items.length === 0) {
     return new Response(JSON.stringify({ ok: false, error: 'Add at least one item to the board' }), { status: 400, headers });
   }
@@ -40,36 +37,10 @@ export async function onRequest(context) {
     return new Response(JSON.stringify({ ok: false, error: 'Maximum 24 items allowed' }), { status: 400, headers });
   }
 
-  // ── Brute-force protection: per-IP failed-attempt lockout ──
-  const ip = request.headers.get('CF-Connecting-IP') || 'unknown';
-  const rlKey = `tio-rl-${ip}`;
-  const MAX_FAILS = 6;
-  const LOCK_SECONDS = 900; // 15 minutes
-  let rl = { count: 0 };
-  try { const raw = await kv.get(rlKey); if (raw) rl = JSON.parse(raw); } catch {}
-  if (rl.count >= MAX_FAILS) {
-    return new Response(JSON.stringify({ ok: false, error: 'Too many attempts. Please try again in about 15 minutes.' }), { status: 429, headers });
-  }
-
-  // Load staff PINs from KV
-  let staffPins;
-  try {
-    const raw = await kv.get('tio-staff-pins');
-    staffPins = raw ? JSON.parse(raw) : {};
-  } catch {
-    return new Response(JSON.stringify({ ok: false, error: 'Could not load staff data' }), { status: 500, headers });
-  }
-
-  const staffEntry = staffPins[name.trim()];
-  if (!staffEntry || String(staffEntry.pin) !== pin.trim()) {
-    // Record the failed attempt with a rolling 15-min expiry
-    try { await kv.put(rlKey, JSON.stringify({ count: rl.count + 1 }), { expirationTtl: LOCK_SECONDS }); } catch {}
-    const left = Math.max(0, MAX_FAILS - (rl.count + 1));
-    return new Response(JSON.stringify({ ok: false, error: 'Incorrect name or PIN' + (left <= 2 ? ` (${left} attempt${left === 1 ? '' : 's'} left)` : '') }), { status: 401, headers });
-  }
-
-  // Correct PIN → clear the failed-attempt counter
-  try { await kv.delete(rlKey); } catch {}
+  // ── PIN security TEMPORARILY DISABLED (per request) ──
+  // To re-enable later: validate `pin` against KV key `tio-staff-pins`
+  // and restore the per-IP brute-force lockout (see git history).
+  const author = (name && typeof name === 'string' && name.trim()) ? name.trim().slice(0, 40) : 'Staff';
 
   // Normalize items → [{name, tag}]
   const cleaned = items
@@ -94,7 +65,7 @@ export async function onRequest(context) {
     await Promise.all([
       kv.put('tio-board-current', JSON.stringify(cleaned)),
       kv.put('tio-board-meta', JSON.stringify({
-        updatedBy: name.trim(),
+        updatedBy: author,
         updatedAt: nowMST,
         updatedAtISO: new Date().toISOString(),
       })),
@@ -105,7 +76,7 @@ export async function onRequest(context) {
 
   return new Response(JSON.stringify({
     ok: true,
-    updatedBy: name.trim(),
+    updatedBy: author,
     updatedAt: nowMST,
     count: cleaned.length,
   }), { headers });
