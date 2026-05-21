@@ -1,5 +1,5 @@
 /* ════════════════════════════════════════════════════
-   VIVERE FRAMEWORK — styles.css v6 — Top it off Smoothie Cafe
+   VIVERE FRAMEWORK — styles.css v7 — Top it off Smoothie Cafe
    Brand: forest green #14502e · hot pink #e8197d · leaf #6fbf44
    ════════════════════════════════════════════════════ */
 
@@ -218,7 +218,11 @@ body > * { position: relative; z-index: 1; }
 
 /* ── SECTIONS ── */
 .section { padding: var(--section-pad-y) 1.25rem; }
-.section--alt { background: var(--bg-alt); }
+.section--alt {
+  background: #e4f1da;
+  box-shadow: inset 0 1px 0 rgba(111,191,68,.18), inset 0 -1px 0 rgba(111,191,68,.12);
+}
+.section--warm { background: linear-gradient(160deg, #fff6fb 0%, #ffffff 100%); }
 .section--green { background: linear-gradient(160deg, var(--green-deep), #0e3a21); color: #fff; }
 .section--green .section-title, .section--green .section-eyebrow { color: #fff; }
 .section--green .section-lead { color: rgba(255,255,255,0.82); }
@@ -245,11 +249,11 @@ body > * { position: relative; z-index: 1; }
 
 /* ── SPLIT ROW ── */
 .split { display: grid; gap: 2.5rem; align-items: center; }
-@media (min-width: 860px) { .split { grid-template-columns: 1fr 1fr; } .split--reverse .split-media { order: 2; } }
+@media (min-width: 860px) { .split { grid-template-columns: 1fr 1fr; gap: 3.5rem; } .split--reverse .split-media { order: 2; } }
 .split-media {
   border-radius: var(--radius-xl); overflow: hidden; box-shadow: var(--shadow-lg);
   background: linear-gradient(160deg, var(--accent-light), var(--accent-alt));
-  min-height: 320px; display: grid; place-items: center; color: #fff; font-size: 4rem;
+  min-height: 420px; display: grid; place-items: center; color: #fff; font-size: 4rem;
 }
 .split-body h2 { font-family: var(--font-display); font-size: var(--text-2xl); color: var(--green-deep); margin-bottom: 1rem; }
 .split-body p { color: var(--fg-soft); margin-bottom: 1rem; }
@@ -498,8 +502,9 @@ body > * { position: relative; z-index: 1; }
 /* ── SPLIT MEDIA WITH PHOTO ── */
 .split-media { overflow: hidden; }
 .split-media img {
-  width: 100%; height: 100%; min-height: 320px;
-  object-fit: cover; border-radius: var(--radius-xl);
+  width: 100%; height: 100%; min-height: 420px;
+  object-fit: cover; object-position: center 25%;
+  border-radius: var(--radius-xl);
   display: block;
   transition: transform .9s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
@@ -512,16 +517,16 @@ body > * { position: relative; z-index: 1; }
 .split-media { position: relative; }
 
 /* ── PULL QUOTE ── */
-.pull-quote { padding: clamp(3rem, 7vw, 6rem) 1.25rem; text-align: center; background: var(--cream); }
+.pull-quote { padding: clamp(3.5rem, 8vw, 7rem) 1.25rem; text-align: center; background: #fff; }
 .pull-quote-inner { max-width: 960px; margin: 0 auto; }
-.pull-quote-mark { font-family: var(--font-display); font-size: 6rem; line-height: .6; color: var(--accent); opacity: .25; margin-bottom: 1rem; display: block; }
+.pull-quote-mark { font-family: var(--font-display); font-size: 6rem; line-height: .6; color: var(--accent); opacity: .22; margin-bottom: 1rem; display: block; }
 .pull-quote-text {
   font-family: var(--font-display); font-weight: 700;
-  font-size: clamp(1.9rem, 5vw, 4rem); line-height: 1.1;
-  color: var(--green-deep); letter-spacing: -.01em;
+  font-size: clamp(2.1rem, 5.5vw, 4.5rem); line-height: 1.08;
+  color: var(--green-deep); letter-spacing: -.02em;
 }
 .pull-quote-text em { font-style: italic; color: var(--accent); }
-.pull-quote-attr { margin-top: 1.5rem; font-size: var(--text-sm); color: var(--fg-soft); font-weight: 500; letter-spacing: .04em; text-transform: uppercase; }
+.pull-quote-attr { margin-top: 1.75rem; font-size: var(--text-sm); color: var(--fg-soft); font-weight: 500; letter-spacing: .06em; text-transform: uppercase; }
 
 /* ── CARD TILT ── */
 .card { transform-style: preserve-3d; perspective: 800px; }
@@ -581,12 +586,12 @@ body > * { position: relative; z-index: 1; }
 .section-fruit-bg-img {
   position: absolute; inset: 0; width: 100%; height: 100%;
   object-fit: cover; object-position: center 30%;
-  z-index: 0; opacity: .09; filter: saturate(1.4);
+  z-index: 0; opacity: .16; filter: saturate(1.5);
   pointer-events: none;
 }
 .section--fruit-bg::after {
   content: ''; position: absolute; inset: 0; z-index: 1; pointer-events: none;
-  background: linear-gradient(to bottom, rgba(246,251,244,.82) 0%, rgba(246,251,244,.72) 100%);
+  background: linear-gradient(to bottom, rgba(255,255,255,.80) 0%, rgba(255,255,255,.68) 60%, rgba(255,255,255,.76) 100%);
 }
 .section--fruit-bg > .section-inner { position: relative; z-index: 2; }
 
