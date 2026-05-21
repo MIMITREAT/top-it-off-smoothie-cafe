@@ -89,11 +89,12 @@
   if (boardItems) {
     var esc = function (s) { return String(s).replace(/[&<>"']/g, function (c) { return ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' })[c]; }); };
     var moreLink = '<a href="menu.html" class="board-chip board-chip--more">Full menu →</a>';
+    var fallback = '<span class="board-empty">Ask about today’s Mimi’s flavors in store.</span>' + moreLink;
     fetch('/api/flavors-get', { cache: 'no-store' })
       .then(function (r) { return r.json(); })
       .then(function (data) {
         if (!data || !data.ok || !Array.isArray(data.items) || data.items.length === 0) {
-          boardItems.innerHTML = '<span class="board-empty">Fresh blends served all day — see the full menu.</span>' + moreLink;
+          boardItems.innerHTML = fallback;
           return;
         }
         var html = data.items.map(function (it) {
@@ -104,7 +105,7 @@
         if (boardDate && data.updatedAt) boardDate.textContent = 'Updated ' + data.updatedAt;
       })
       .catch(function () {
-        boardItems.innerHTML = '<span class="board-empty">Fresh blends served all day — see the full menu.</span>' + moreLink;
+        boardItems.innerHTML = fallback;
       });
   }
 })();

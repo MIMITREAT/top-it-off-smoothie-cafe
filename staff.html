@@ -77,17 +77,17 @@
     <!-- EDITOR -->
     <div class="card hidden" id="editor-card">
       <div id="demo-banner" class="hidden" style="background:#fff4f9;border:1px solid #f6c6dd;color:var(--accent-dark);font-size:13px;padding:10px 12px;border-radius:10px;margin-bottom:14px;">Preview mode — this is the staff view. Sign in with a PIN to publish changes.</div>
-      <h2 class="card-title">Today's Top Picks</h2>
-      <p class="card-sub">Signed in as <strong id="who"></strong>. Add today's featured smoothies, then publish to the homepage board.</p>
+      <h2 class="card-title">Today's Flavors</h2>
+      <p class="card-sub">Signed in as <strong id="who"></strong>. Add the Mimi's ice cream flavors available today, then publish to the homepage board.</p>
 
-      <label for="i-name">Add an item</label>
+      <label for="i-name">Add a flavor</label>
       <div class="row">
-        <input type="text" id="i-name" placeholder="Smoothie name">
+        <input type="text" id="i-name" placeholder="Flavor name">
         <input type="text" id="i-tag" style="max-width:120px;" placeholder="Tag (opt)">
       </div>
       <button class="btn btn--ghost btn--sm" style="margin-top:8px;" id="add-btn">+ Add to board</button>
 
-      <p class="preset-label">Quick add from menu:</p>
+      <p class="preset-label">Quick add common flavors:</p>
       <div class="presets" id="presets"></div>
 
       <ul class="items" id="items"></ul>
@@ -103,7 +103,7 @@
   (function(){
     var creds = { name:'', pin:'' };
     var board = [];
-    var PRESETS = ['Strawberry Sunrise','Berry Boost','Mango Tango','Green Machine','PB Banana Power','Piña Colada','Açaí Classic Bowl','Tropical Bowl','PB & Berry Bowl'];
+    var PRESETS = ['Vanilla Bean','Chocolate','Strawberry','Rainbow Sherbet','Cookies & Cream','Mint Chip','Salted Caramel','Black Cherry','Toasted Marshmallow','Butterfinger','Peanut Butter','Blueberry','Cookie Dough','Lemon Cookie'];
 
     var $ = function(id){ return document.getElementById(id); };
     function esc(s){ return String(s).replace(/[&<>"']/g,function(c){return ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'})[c];}); }
@@ -161,7 +161,7 @@
       $('editor-card').classList.remove('hidden');
       $('demo-banner').classList.remove('hidden');
       renderPresets();
-      board = [{name:'Strawberry Sunrise',tag:'Popular'},{name:'Mango Tango',tag:'Vegan'},{name:'Green Machine',tag:''},{name:'Tropical Bowl',tag:'New'}];
+      board = [{name:'Vanilla Bean',tag:'Classic'},{name:'Rainbow Sherbet',tag:''},{name:'Salted Caramel',tag:'Popular'},{name:'Black Cherry',tag:'New'}];
       renderItems();
       var pb = $('publish-btn');
       pb.textContent = 'Sign in to publish';

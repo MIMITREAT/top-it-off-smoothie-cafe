@@ -40,6 +40,17 @@ export async function onRequest(context) {
     return new Response(JSON.stringify({ ok: false, error: 'Maximum 24 items allowed' }), { status: 400, headers });
   }
 
+  // ── Brute-force protection: per-IP failed-attempt lockout ──
+  const ip = request.headers.get('CF-Connecting-IP') || 'unknown';
+  const rlKey = `tio-rl-${ip}`;
+  const MAX_FAILS = 6;
+  const LOCK_SECONDS = 900; // 15 minutes
+  let rl = { count: 0 };
+  try { const raw = await kv.get(rlKey); if (raw) rl = JSON.parse(raw); } catch {}
+  if (rl.count >= MAX_FAILS) {
+    return new Response(JSON.stringify({ ok: false, error: 'Too many attempts. Please try again in about 15 minutes.' }), { status: 429, headers });
+  }
+
   // Load staff PINs from KV
   let staffPins;
   try {
@@ -51,8 +62,14 @@ export async function onRequest(context) {
 
   const staffEntry = staffPins[name.trim()];
   if (!staffEntry || String(staffEntry.pin) !== pin.trim()) {
-    return new Response(JSON.stringify({ ok: false, error: 'Incorrect name or PIN' }), { status: 401, headers });
+    // Record the failed attempt with a rolling 15-min expiry
+    try { await kv.put(rlKey, JSON.stringify({ count: rl.count + 1 }), { expirationTtl: LOCK_SECONDS }); } catch {}
+    const left = Math.max(0, MAX_FAILS - (rl.count + 1));
+    return new Response(JSON.stringify({ ok: false, error: 'Incorrect name or PIN' + (left <= 2 ? ` (${left} attempt${left === 1 ? '' : 's'} left)` : '') }), { status: 401, headers });
   }
+
+  // Correct PIN → clear the failed-attempt counter
+  try { await kv.delete(rlKey); } catch {}
 
   // Normalize items → [{name, tag}]
   const cleaned = items
