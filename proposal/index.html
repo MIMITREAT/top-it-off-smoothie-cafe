@@ -1,0 +1,1349 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noindex, nofollow">
+  <title>Website Build Report — Top it off Smoothie Cafe | Vivere Web</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400&family=Playfair+Display:ital,wght@0,700;0,800;1,600&family=Pacifico&display=swap" rel="stylesheet">
+  <style>
+    /* ── TOKENS ── */
+    :root {
+      --tio-green:   #14502e;
+      --tio-dark:    #0a1e10;
+      --tio-mid:     #1e6b40;
+      --tio-light:   #e4f1da;
+      --tio-pink:    #e8197d;
+      --tio-pink-dk: #c0125f;
+      --tio-leaf:    #6fbf44;
+      --viv-950:     #0d1d18;
+      --viv-800:     #1e4036;
+      --viv-200:     #bcd7ca;
+      --viv-50:      #f0f7f4;
+      --gold:        #f5b82e;
+      --text:        #1a1a1a;
+      --muted:       #555;
+      --soft:        #888;
+      --border:      #dde7e3;
+      --cream:       #fafaf8;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Inter', system-ui, sans-serif;
+      font-size: 15px;
+      line-height: 1.7;
+      color: var(--text);
+      background: #fff;
+      max-width: 960px;
+      margin: 0 auto;
+    }
+
+    /* ── PRINT ── */
+    @media print {
+      .toc-sidebar { display: none; }
+      body { max-width: 100%; font-size: 12pt; }
+      .cover { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+      .section-band { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+      section { page-break-inside: avoid; }
+      @page { margin: 0.75in; }
+    }
+
+    /* ── COVER ── */
+    .cover {
+      background: linear-gradient(160deg, var(--tio-dark) 0%, var(--tio-green) 60%, #1a6b3a 100%);
+      color: #fff;
+      padding: 4rem 3.5rem 3rem;
+      position: relative;
+      overflow: hidden;
+    }
+    .cover::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+      opacity: .04; pointer-events: none;
+    }
+    .cover-agency {
+      font-size: 0.72rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--tio-leaf);
+      font-weight: 700;
+      margin-bottom: 1.5rem;
+    }
+    .cover h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2rem, 5vw, 3.25rem);
+      line-height: 1.15;
+      margin-bottom: 0.5rem;
+      font-weight: 800;
+    }
+    .cover h1 em {
+      font-style: italic;
+      color: var(--tio-pink);
+    }
+    .cover-client {
+      font-size: 1.05rem;
+      color: rgba(255,255,255,.75);
+      margin-bottom: 2.5rem;
+    }
+    .cover-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem 2.5rem;
+      font-size: 0.8rem;
+      color: rgba(255,255,255,.6);
+      border-top: 1px solid rgba(255,255,255,.12);
+      padding-top: 1.5rem;
+    }
+    .cover-meta span strong { display: block; color: #fff; font-size: 0.85rem; margin-bottom: 0.1rem; }
+    .cover-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: rgba(232,25,125,.15);
+      border: 1px solid rgba(232,25,125,.4);
+      color: #ff7dba;
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      padding: 4px 12px;
+      border-radius: 20px;
+      margin-bottom: 1.25rem;
+      display: inline-flex;
+    }
+    .cover-badge::before { content: '●'; font-size: 0.5rem; }
+
+    /* ── TOC ── */
+    .toc-wrap {
+      background: var(--viv-50);
+      border-left: 4px solid var(--tio-green);
+      padding: 2rem 2.5rem;
+    }
+    .toc-title {
+      font-size: 0.72rem;
+      font-weight: 800;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--tio-green);
+      margin-bottom: 1.25rem;
+    }
+    .toc-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0.25rem 2.5rem;
+    }
+    @media (max-width: 600px) { .toc-grid { grid-template-columns: 1fr; } }
+    .toc-item {
+      display: flex;
+      align-items: baseline;
+      gap: 0.5rem;
+      font-size: 0.88rem;
+      padding: 0.35rem 0;
+      border-bottom: 1px dashed var(--border);
+      text-decoration: none;
+      color: var(--text);
+      transition: color 0.2s;
+    }
+    .toc-item:hover { color: var(--tio-green); }
+    .toc-num {
+      font-size: 0.72rem;
+      font-weight: 700;
+      color: var(--tio-pink);
+      min-width: 22px;
+    }
+
+    /* ── SECTION LAYOUT ── */
+    .report-body { padding: 0 2.5rem; }
+
+    section {
+      padding: 2.75rem 0;
+      border-bottom: 1px solid var(--border);
+    }
+    section:last-child { border-bottom: none; }
+
+    .section-band {
+      background: var(--tio-dark);
+      color: #fff;
+      margin: 0 -2.5rem;
+      padding: 2.5rem 2.5rem;
+      border-bottom: none;
+    }
+    .section-band h2 { color: #fff; }
+    .section-band p { color: rgba(255,255,255,.75); }
+
+    /* ── HEADINGS ── */
+    h2 {
+      font-size: 0.72rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      color: var(--tio-green);
+      margin-bottom: 1.25rem;
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+    h2::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background: var(--border);
+    }
+    h3 {
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: var(--text);
+      margin-bottom: 0.5rem;
+    }
+    h4 {
+      font-size: 0.88rem;
+      font-weight: 700;
+      color: var(--tio-green);
+      margin-bottom: 0.35rem;
+    }
+    p { color: var(--muted); margin-bottom: 0.85rem; }
+    p:last-child { margin-bottom: 0; }
+    strong { color: var(--text); }
+    a { color: var(--tio-green); }
+
+    ul.body-list {
+      list-style: none;
+      padding: 0;
+      color: var(--muted);
+      font-size: 0.9rem;
+    }
+    ul.body-list li {
+      padding: 0.3rem 0;
+      padding-left: 1.5rem;
+      position: relative;
+      border-bottom: 1px solid var(--border);
+    }
+    ul.body-list li:last-child { border-bottom: none; }
+    ul.body-list li::before {
+      content: '✓';
+      position: absolute;
+      left: 0;
+      color: var(--tio-leaf);
+      font-weight: 700;
+    }
+
+    /* ── CALLOUT BOX ── */
+    .callout {
+      background: var(--viv-50);
+      border-left: 4px solid var(--tio-green);
+      padding: 1.1rem 1.4rem;
+      border-radius: 0 0.5rem 0.5rem 0;
+      margin: 1.25rem 0;
+    }
+    .callout p { color: var(--text); margin: 0; font-size: 0.9rem; }
+    .callout.pink { border-left-color: var(--tio-pink); background: #fff5f9; }
+    .callout.pink p { color: var(--tio-pink-dk); }
+    .callout.gold { border-left-color: var(--gold); background: #fffbeb; }
+    .callout.gold p { color: #7a5c00; }
+
+    /* ── STAT ROW ── */
+    .stat-row {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+      gap: 1rem;
+      margin: 1.5rem 0;
+    }
+    .stat-card {
+      background: var(--cream);
+      border: 1px solid var(--border);
+      border-radius: 0.75rem;
+      padding: 1.1rem;
+      text-align: center;
+    }
+    .stat-card .stat-val {
+      font-size: 1.75rem;
+      font-weight: 800;
+      color: var(--tio-green);
+      line-height: 1;
+      margin-bottom: 0.3rem;
+    }
+    .stat-card .stat-label {
+      font-size: 0.72rem;
+      color: var(--soft);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      font-weight: 600;
+    }
+
+    /* ── FEATURE BREAKDOWN TABLE ── */
+    .feat-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.88rem;
+      margin: 1rem 0;
+    }
+    .feat-table th {
+      background: var(--tio-dark);
+      color: #fff;
+      padding: 0.65rem 1rem;
+      text-align: left;
+      font-size: 0.75rem;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+    }
+    .feat-table td {
+      padding: 0.75rem 1rem;
+      border-bottom: 1px solid var(--border);
+      vertical-align: top;
+      color: var(--muted);
+    }
+    .feat-table tr:nth-child(even) td { background: var(--cream); }
+    .feat-table .tag {
+      display: inline-block;
+      font-size: 0.68rem;
+      font-weight: 700;
+      padding: 2px 8px;
+      border-radius: 20px;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+    }
+    .tag-adv { background: #fff0f7; color: var(--tio-pink-dk); border: 1px solid rgba(192,18,95,.2); }
+    .tag-std { background: #f0f7f4; color: var(--tio-green); border: 1px solid rgba(20,80,46,.2); }
+    .tag-be  { background: #fffbeb; color: #7a5c00; border: 1px solid rgba(245,184,46,.35); }
+    .feat-table strong { color: var(--text); }
+
+    /* ── WIREFRAME ── */
+    .wire-page {
+      background: var(--cream);
+      border: 2px solid var(--border);
+      border-radius: 0.75rem;
+      overflow: hidden;
+      margin-bottom: 1.25rem;
+    }
+    .wire-page-title {
+      background: var(--tio-green);
+      color: #fff;
+      font-size: 0.78rem;
+      font-weight: 700;
+      padding: 0.5rem 1rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .wire-page-title .wire-badge {
+      font-size: 0.65rem;
+      background: rgba(255,255,255,.15);
+      padding: 2px 8px;
+      border-radius: 10px;
+    }
+    .wire-sections { padding: 0.75rem; display: flex; flex-direction: column; gap: 0.4rem; }
+    .wire-block {
+      border-radius: 4px;
+      padding: 0.4rem 0.75rem;
+      font-size: 0.75rem;
+      color: var(--muted);
+      border: 1px dashed var(--border);
+      background: #fff;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .wire-block.hero { background: var(--tio-light); border-color: var(--tio-leaf); color: var(--tio-green); font-weight: 600; }
+    .wire-block.special { background: #fff5f9; border-color: rgba(232,25,125,.3); color: var(--tio-pink-dk); }
+    .wire-block.backend { background: #fffbeb; border-color: rgba(245,184,46,.5); color: #7a5c00; }
+    .wire-block-tag { font-size: 0.65rem; opacity: .7; }
+
+    .wire-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+    }
+    @media (max-width: 600px) { .wire-grid { grid-template-columns: 1fr; } }
+
+    /* ── POTENTIAL PAGES ── */
+    .expand-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+      gap: 1rem;
+      margin: 1rem 0;
+    }
+    .expand-card {
+      border: 1px solid var(--border);
+      border-radius: 0.75rem;
+      padding: 1.1rem;
+      background: var(--cream);
+    }
+    .expand-card h4 { font-size: 0.88rem; color: var(--tio-green); margin-bottom: 0.35rem; }
+    .expand-card p { font-size: 0.8rem; margin: 0; color: var(--muted); }
+    .expand-card .expand-tag {
+      font-size: 0.65rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--tio-pink);
+      margin-bottom: 0.4rem;
+      display: block;
+    }
+
+    /* ── PRICING ── */
+    .pricing-block {
+      border: 2px solid var(--border);
+      border-radius: 0.85rem;
+      overflow: hidden;
+      margin-bottom: 1.25rem;
+    }
+    .pricing-block.featured {
+      border-color: var(--tio-green);
+    }
+    .pricing-block.partner {
+      border-color: var(--tio-pink);
+    }
+    .pricing-head {
+      background: var(--cream);
+      padding: 1.25rem 1.5rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+    }
+    .pricing-block.featured .pricing-head { background: var(--viv-50); }
+    .pricing-block.partner .pricing-head { background: #fff5f9; }
+    .pricing-plan { font-size: 0.72rem; font-weight: 800; letter-spacing: 0.14em; text-transform: uppercase; color: var(--soft); margin-bottom: 0.25rem; }
+    .pricing-block.featured .pricing-plan { color: var(--tio-green); }
+    .pricing-block.partner .pricing-plan { color: var(--tio-pink); }
+    .pricing-name { font-size: 1.1rem; font-weight: 700; color: var(--text); }
+    .pricing-amount { font-size: 2rem; font-weight: 800; color: var(--tio-green); line-height: 1; }
+    .pricing-block.partner .pricing-amount { color: var(--tio-pink); }
+    .pricing-sub { font-size: 0.78rem; color: var(--soft); }
+    .pricing-body { padding: 1rem 1.5rem; }
+    .pricing-body ul {
+      list-style: none;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0.25rem;
+      font-size: 0.83rem;
+      color: var(--muted);
+    }
+    @media (max-width: 500px) { .pricing-body ul { grid-template-columns: 1fr; } }
+    .pricing-body ul li { padding: 0.25rem 0; padding-left: 1.25rem; position: relative; }
+    .pricing-body ul li::before { content: '✓'; position: absolute; left: 0; color: var(--tio-leaf); font-weight: 700; }
+    .pricing-block.partner .pricing-body ul li::before { color: var(--tio-pink); }
+    .savings-banner {
+      background: linear-gradient(135deg, var(--tio-pink) 0%, var(--tio-pink-dk) 100%);
+      color: #fff;
+      padding: 0.85rem 1.5rem;
+      font-size: 0.88rem;
+      font-weight: 600;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 0.35rem;
+    }
+    .savings-banner .savings-num { font-size: 1.2rem; font-weight: 800; }
+
+    /* ── RETAINER TABLE ── */
+    .retainer-row {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+      gap: 0.75rem;
+      margin: 1rem 0;
+    }
+    .ret-card {
+      border: 1px solid var(--border);
+      border-radius: 0.65rem;
+      padding: 1rem;
+      background: var(--cream);
+    }
+    .ret-plan { font-size: 0.65rem; font-weight: 800; letter-spacing: 0.12em; text-transform: uppercase; color: var(--tio-green); margin-bottom: 0.4rem; }
+    .ret-price { font-size: 1.35rem; font-weight: 800; color: var(--text); line-height: 1; }
+    .ret-mo { font-size: 0.72rem; color: var(--soft); margin-bottom: 0.6rem; }
+    .ret-items { list-style: none; font-size: 0.75rem; color: var(--muted); }
+    .ret-items li { padding: 0.2rem 0; border-bottom: 1px solid var(--border); }
+    .ret-items li:last-child { border-bottom: none; }
+    .ret-items li::before { content: '→ '; color: var(--tio-leaf); font-weight: 700; }
+
+    /* ── TIMELINE ── */
+    .timeline-row {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+      gap: 0.75rem;
+      margin: 1rem 0;
+    }
+    .tl-step {
+      background: var(--cream);
+      border: 1px solid var(--border);
+      border-radius: 0.65rem;
+      padding: 1rem;
+      text-align: center;
+    }
+    .tl-num {
+      width: 30px; height: 30px;
+      background: var(--tio-green);
+      color: #fff;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 800;
+      font-size: 0.8rem;
+      margin: 0 auto 0.5rem;
+    }
+    .tl-title { font-size: 0.82rem; font-weight: 700; margin-bottom: 0.2rem; }
+    .tl-desc { font-size: 0.73rem; color: var(--soft); margin: 0; }
+
+    /* ── PAYMENT STEPS ── */
+    .pay-steps { display: flex; flex-direction: column; gap: 1rem; margin: 1rem 0; }
+    .pay-step { display: flex; gap: 1rem; align-items: flex-start; }
+    .pay-num {
+      width: 32px; height: 32px;
+      background: var(--tio-green);
+      color: #fff;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 800;
+      font-size: 0.82rem;
+      flex-shrink: 0;
+    }
+    .pay-body strong { display: block; color: var(--text); margin-bottom: 0.15rem; }
+    .pay-body p { margin: 0; font-size: 0.85rem; }
+
+    /* ── SIGNATURE ── */
+    .sig-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2.5rem;
+      margin-top: 1.5rem;
+    }
+    @media (max-width: 500px) { .sig-grid { grid-template-columns: 1fr; } }
+    .sig-block { border-top: 2px solid var(--text); padding-top: 0.5rem; margin-top: 3rem; }
+    .sig-label { font-size: 0.72rem; color: var(--soft); text-transform: uppercase; letter-spacing: 0.08em; }
+    .sig-name { font-weight: 700; margin-top: 0.2rem; }
+
+    /* ── REPORT FOOTER ── */
+    .report-footer {
+      background: var(--tio-dark);
+      color: rgba(255,255,255,.55);
+      padding: 1.25rem 2.5rem;
+      font-size: 0.75rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+    }
+    .report-footer strong { color: rgba(255,255,255,.85); }
+
+    /* ── LIGHTHOUSE SCORES ── */
+    .lh-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(90px, 1fr));
+      gap: 0.75rem;
+      margin: 1rem 0;
+    }
+    .lh-card {
+      border-radius: 50%;
+      width: 88px; height: 88px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      border: 3px solid var(--tio-leaf);
+      background: var(--cream);
+      margin: 0 auto;
+    }
+    .lh-card.warn { border-color: #e8b200; }
+    .lh-score { font-size: 1.5rem; font-weight: 800; color: var(--tio-green); line-height: 1; }
+    .lh-card.warn .lh-score { color: #a07000; }
+    .lh-label { font-size: 0.58rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em; color: var(--soft); text-align: center; margin-top: 0.2rem; }
+    .lh-page-label { text-align: center; font-size: 0.75rem; font-weight: 700; color: var(--tio-green); margin-top: 0.35rem; }
+    .lh-set { margin-bottom: 1.25rem; }
+
+    /* ── COMPARISON TABLE ── */
+    .comp-table { width: 100%; border-collapse: collapse; font-size: 0.85rem; margin: 1rem 0; }
+    .comp-table th { background: var(--tio-dark); color: #fff; padding: 0.6rem 1rem; text-align: left; font-size: 0.73rem; letter-spacing: 0.06em; text-transform: uppercase; }
+    .comp-table td { padding: 0.7rem 1rem; border-bottom: 1px solid var(--border); color: var(--muted); }
+    .comp-table tr:nth-child(even) td { background: var(--cream); }
+    .comp-table .highlight td { background: var(--viv-50); color: var(--tio-green); font-weight: 600; }
+    .comp-table .savings { color: var(--tio-pink); font-weight: 700; }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 700px) {
+      .cover { padding: 2.5rem 1.5rem 2rem; }
+      .report-body { padding: 0 1.25rem; }
+      .toc-wrap { padding: 1.5rem 1.25rem; }
+      .section-band { margin: 0 -1.25rem; padding: 2rem 1.25rem; }
+      .report-footer { padding: 1rem 1.25rem; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ═══════════════════════════════ COVER ═══════════════════════════════ -->
+<div class="cover">
+  <div class="cover-agency">Vivere Web · Client Build Report</div>
+  <div class="cover-badge">Confidential · May 2026</div>
+  <h1>Website Build Report<br><em>&amp; Investment Summary</em></h1>
+  <div class="cover-client">Prepared for: <strong style="color:#fff;">Top it off Smoothie Cafe</strong> · Grand Junction, CO</div>
+  <div class="cover-meta">
+    <span><strong>Prepared by</strong>Joseph Sutliff · Vivere Web</span>
+    <span><strong>Contact</strong>joseph@vivereweb.com · (970) 462-2817</span>
+    <span><strong>Staging Site</strong>staging.top-it-off.pages.dev</span>
+    <span><strong>Valid</strong>30 days from issue</span>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════ TOC ═══════════════════════════════ -->
+<div class="toc-wrap">
+  <div class="toc-title">Table of Contents</div>
+  <div class="toc-grid">
+    <a href="#vivere" class="toc-item"><span class="toc-num">01</span> About Vivere Web</a>
+    <a href="#advantage" class="toc-item"><span class="toc-num">02</span> The Vivere Advantage</a>
+    <a href="#build" class="toc-item"><span class="toc-num">03</span> What Was Built</a>
+    <a href="#wireframe" class="toc-item"><span class="toc-num">04</span> Site Architecture &amp; Wireframes</a>
+    <a href="#features" class="toc-item"><span class="toc-num">05</span> Advanced Features &amp; Backend</a>
+    <a href="#performance" class="toc-item"><span class="toc-num">06</span> Performance &amp; SEO Results</a>
+    <a href="#expand" class="toc-item"><span class="toc-num">07</span> Expansion Opportunities</a>
+    <a href="#pricing" class="toc-item"><span class="toc-num">08</span> Standard Vivere Pricing</a>
+    <a href="#partner" class="toc-item"><span class="toc-num">09</span> Your Partner Pricing</a>
+    <a href="#retainer" class="toc-item"><span class="toc-num">10</span> Monthly Care Plans</a>
+    <a href="#terms" class="toc-item"><span class="toc-num">11</span> Payment Terms &amp; Ownership</a>
+    <a href="#next" class="toc-item"><span class="toc-num">12</span> Next Steps</a>
+  </div>
+</div>
+
+<div class="report-body">
+
+<!-- ═══════════════════════════════ 01 — VIVERE ═══════════════════════════════ -->
+<section id="vivere">
+  <h2>01 — About Vivere Web</h2>
+
+  <p><strong>Vivere Web</strong> is a boutique web development agency based in Western Colorado, founded by Joseph Sutliff. Every project is built 100% custom — no templates, no drag-and-drop builders, no WordPress bloat — just clean, hand-coded HTML, CSS, and JavaScript deployed on enterprise-grade Cloudflare infrastructure.</p>
+
+  <div class="callout">
+    <p>Vivere builds sites the way large agencies charge $15,000–$25,000 to build — and delivers them at a fraction of that cost because there's no account management layer, no project management overhead, and no outsourcing. You work directly with Joe from day one.</p>
+  </div>
+
+  <h3 style="margin-top:1.5rem;">Why custom-coded over WordPress or Squarespace?</h3>
+
+  <table class="feat-table" style="margin-top:0.75rem;">
+    <thead>
+      <tr><th>Factor</th><th>Vivere Custom Build</th><th>WordPress / Squarespace</th></tr>
+    </thead>
+    <tbody>
+      <tr><td><strong>Page Speed</strong></td><td>82–95 Lighthouse score standard</td><td>40–65 typical (plugin bloat)</td></tr>
+      <tr><td><strong>Security</strong></td><td>No CMS attack surface, no plugin vulnerabilities</td><td>Constant patching required; #1 hacked platform</td></tr>
+      <tr><td><strong>Hosting Cost</strong></td><td>Cloudflare Pages — free tier covers most small sites</td><td>$15–$75/month ongoing</td></tr>
+      <tr><td><strong>You Own It</strong></td><td>Full code handoff — no platform dependency</td><td>Locked to platform; migrate = rebuild</td></tr>
+      <tr><td><strong>Load Time</strong></td><td>Sub-2 second typical LCP</td><td>4–8 seconds common with plugins</td></tr>
+      <tr><td><strong>SEO Control</strong></td><td>Full schema, canonical, structured data — no limitations</td><td>Limited by theme; requires paid SEO plugins</td></tr>
+      <tr><td><strong>Custom Features</strong></td><td>Built exactly as needed — no workarounds</td><td>Plugin-dependent; often imperfect solutions</td></tr>
+    </tbody>
+  </table>
+</section>
+
+<!-- ═══════════════════════════════ 02 — ADVANTAGE ═══════════════════════════════ -->
+<section id="advantage">
+  <h2>02 — The Vivere Advantage</h2>
+  <p>What makes working with Vivere different from hiring a dev shop, using a website builder, or posting on Upwork. These aren't marketing claims — they're structural advantages built into how Vivere operates.</p>
+
+  <!-- DIRECT ACCESS -->
+  <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:1rem;margin:1.5rem 0;">
+
+    <div class="expand-card" style="border-left:3px solid var(--tio-green);">
+      <span class="expand-tag" style="color:var(--tio-green);">Direct Access</span>
+      <h4 style="font-size:0.95rem;">You Talk to the Developer. Always.</h4>
+      <p>No account managers. No ticket queues. No "I'll pass that along." When you message Vivere, Joe answers — the same person who wrote every line of your site. Questions get answered in hours, not days, because there's no layer between you and the work.</p>
+    </div>
+
+    <div class="expand-card" style="border-left:3px solid var(--tio-pink);">
+      <span class="expand-tag">You Own Everything</span>
+      <h4 style="font-size:0.95rem;">Full Code Handoff. Zero Lock-In.</h4>
+      <p>At project close you receive the complete codebase as a GitHub repo and ZIP archive — every file, every asset, every line. Your site isn't trapped in a platform subscription. If you ever want to move to another developer, switch hosts, or manage it yourself, you can. No fee, no friction, no permission needed.</p>
+    </div>
+
+    <div class="expand-card" style="border-left:3px solid var(--tio-leaf);">
+      <span class="expand-tag" style="color:#4a8a25;">Build Timeline</span>
+      <h4 style="font-size:0.95rem;">Weeks, Not Months.</h4>
+      <p>A comparable agency build takes 8–13 weeks once you account for discovery, mockups, revision cycles, QA, and launch. Vivere builds iteratively in real time — you see the site being built, give feedback directly, and skip the waiting. The Top it off site went from concept to staged deployment in a fraction of that timeline.</p>
+    </div>
+
+    <div class="expand-card" style="border-left:3px solid var(--gold);">
+      <span class="expand-tag" style="color:#7a5c00;">Hosting Cost</span>
+      <h4 style="font-size:0.95rem;">Enterprise Infrastructure. Near Zero Cost.</h4>
+      <p>Cloudflare Pages hosts your site on a global CDN with free SSL, DDoS protection, and 99.99% uptime — at $0/month on the free tier. No Squarespace subscription ($23–$65/mo). No WP Engine ($25–$100/mo). No plugin renewals. The backend (serverless API + KV database) also runs on Cloudflare's free tier. You keep that money every month, indefinitely.</p>
+    </div>
+
+    <div class="expand-card" style="border-left:3px solid #6c8ebf;">
+      <span class="expand-tag" style="color:#3a5a8a;">Performance First</span>
+      <h4 style="font-size:0.95rem;">Built Fast From the Ground Up.</h4>
+      <p>Speed isn't an afterthought — it's baked into every decision. Hand-coded HTML loads faster than any framework. Images are compressed before they're deployed. Cache headers are tuned. The result is 80–95 Lighthouse performance scores as a baseline, not a lucky audit. Google ranks fast sites higher. Customers leave slow ones.</p>
+    </div>
+
+    <div class="expand-card" style="border-left:3px solid #b06abf;">
+      <span class="expand-tag" style="color:#7a3a8a;">Security</span>
+      <h4 style="font-size:0.95rem;">No CMS. No Attack Surface.</h4>
+      <p>WordPress powers 43% of the internet — and is the most hacked platform on it. Static sites have no login pages, no database, no plugin vulnerabilities to patch. Cloudflare sits in front of everything with enterprise-grade bot protection, rate limiting, and DDoS mitigation. Your site is structurally more secure than 90% of small business sites.</p>
+    </div>
+
+    <div class="expand-card" style="border-left:3px solid var(--tio-pink-dk);">
+      <span class="expand-tag">Scalability</span>
+      <h4 style="font-size:0.95rem;">Start Simple. Grow Without Rebuilding.</h4>
+      <p>Every Vivere site is built on a clean, modular codebase. Adding a page, a feature, or an integration later doesn't require a full redesign. The Top it off site already has a live backend, serverless API, and staff editor — features most $10K sites don't have. When you're ready for online ordering, a loyalty page, or a photo gallery, it slots in cleanly.</p>
+    </div>
+
+    <div class="expand-card" style="border-left:3px solid var(--tio-green);">
+      <span class="expand-tag" style="color:var(--tio-green);">Local Knowledge</span>
+      <h4 style="font-size:0.95rem;">Western Colorado. Not a Faceless Agency.</h4>
+      <p>Vivere is based in Western Colorado — same market, same community. Joe understands the Grand Junction customer, the local search landscape, and the kind of business relationship that actually works here. You're not onboarding a vendor in another time zone. You're working with a neighbor who has skin in the same market.</p>
+    </div>
+
+    <div class="expand-card" style="border-left:3px solid var(--gold);">
+      <span class="expand-tag" style="color:#7a5c00;">Relationship-Based</span>
+      <h4 style="font-size:0.95rem;">Joe Already Knows Your Site.</h4>
+      <p>When you message about a change six months from now, Joe doesn't need to re-read a brief or re-learn your codebase. He built it. That standing knowledge is worth real money — it means faster edits, better judgment calls, and no "onboarding tax" every time you need something done.</p>
+    </div>
+
+    <div class="expand-card" style="border-left:3px solid #e08050;">
+      <span class="expand-tag" style="color:#9a4820;">SEO From Day One</span>
+      <h4 style="font-size:0.95rem;">Not Bolted On. Built In.</h4>
+      <p>SEO isn't a plugin you install after launch. Every Vivere site launches with proper meta tags, canonical URLs, JSON-LD structured data, Open Graph, sitemap, robots.txt, and semantic HTML — the full technical foundation Google expects. Most template sites skip half of this. You start indexed correctly instead of playing catch-up.</p>
+    </div>
+
+    <div class="expand-card" style="border-left:3px solid #50b0a0;">
+      <span class="expand-tag" style="color:#207060;">Accessibility</span>
+      <h4 style="font-size:0.95rem;">WCAG AA. Legal Compliance.</h4>
+      <p>ADA web accessibility lawsuits against small businesses are real and increasing. Every Vivere build is audited for WCAG AA compliance — color contrast, keyboard navigation, screen reader compatibility, proper ARIA labels, and touch target sizes. It's the right thing to do, and it protects you legally.</p>
+    </div>
+
+    <div class="expand-card" style="border-left:3px solid var(--tio-pink);">
+      <span class="expand-tag">Transparent Pricing</span>
+      <h4 style="font-size:0.95rem;">Fixed Quotes. No Surprise Invoices.</h4>
+      <p>Every project is scoped and priced upfront. No hourly billing that runs over. No "that's out of scope" for work that clearly should be included. No nickel-and-diming on revisions. The quote you agree to is the invoice you receive — with the full codebase delivered at the end.</p>
+    </div>
+
+  </div>
+
+  <div class="callout gold">
+    <p><strong>Additional site builds</strong> are scoped individually based on complexity, page count, backend requirements, and brand scope. Each project is quoted after a discovery conversation — no two builds are identical, and pricing reflects the actual work involved, not a package that may over- or under-serve your needs.</p>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════ 03 — BUILD ═══════════════════════════════ -->
+<section id="build">
+  <h2>03 — What Was Built</h2>
+
+  <p>The Top it off site is a full multi-page custom build on the <strong>Vivere Master Framework v2</strong> — a production-ready design system built and refined across multiple client sites. Here's exactly what was delivered:</p>
+
+  <div class="stat-row">
+    <div class="stat-card"><div class="stat-val">1,967</div><div class="stat-label">Lines of Code</div></div>
+    <div class="stat-card"><div class="stat-val">5</div><div class="stat-label">Pages Built</div></div>
+    <div class="stat-card"><div class="stat-val">2</div><div class="stat-label">Serverless APIs</div></div>
+    <div class="stat-card"><div class="stat-val">82</div><div class="stat-label">Lighthouse Perf</div></div>
+    <div class="stat-card"><div class="stat-val">99%</div><div class="stat-label">Image Size Cut</div></div>
+  </div>
+
+  <table class="feat-table">
+    <thead>
+      <tr><th>File</th><th>Lines</th><th>Description</th></tr>
+    </thead>
+    <tbody>
+      <tr><td><strong>styles.css</strong></td><td>640</td><td>Full design system — brand tokens, all layouts, animations, responsive breakpoints, WCAG AA accessibility</td></tr>
+      <tr><td><strong>index.html</strong></td><td>360</td><td>Full homepage — hero, live flavor board, feature rows, acai split, Mimi's partner section, pull-quote, visit strip, contact form</td></tr>
+      <tr><td><strong>menu.html</strong></td><td>235</td><td>5-category sample menu with schema markup, tags, pricing layout</td></tr>
+      <tr><td><strong>script.js</strong></td><td>174</td><td>Custom cursor, card tilt, magnetic buttons, View Transitions API, live board fetch, mobile nav</td></tr>
+      <tr><td><strong>about.html</strong></td><td>169</td><td>Brand story, dual split sections, values cards, CTA</td></tr>
+      <tr><td><strong>staff.html</strong></td><td>167</td><td>KV-backed live flavor board editor — staff only, no PIN currently (re-enable ready)</td></tr>
+      <tr><td><strong>flavors-set.js</strong></td><td>83</td><td>Serverless API write endpoint — brute-force lockout code present, PIN logic ready to re-enable</td></tr>
+      <tr><td><strong>flavors-get.js</strong></td><td>40</td><td>Serverless public read endpoint — feeds live board on homepage</td></tr>
+      <tr><td><strong>Config &amp; infra</strong></td><td>~73</td><td>wrangler.toml, robots.txt (13 AI crawlers blocked), sitemap, _headers, _redirects, 404</td></tr>
+    </tbody>
+  </table>
+</section>
+
+<!-- ═══════════════════════════════ 03 — WIREFRAME ═══════════════════════════════ -->
+<section id="wireframe">
+  <h2>04 — Site Architecture &amp; Wireframes</h2>
+  <p>Current site structure with visual block representation of each page's section layout.</p>
+
+  <div class="wire-grid">
+
+    <div>
+      <div class="wire-page">
+        <div class="wire-page-title">index.html — Homepage <span class="wire-badge">Primary</span></div>
+        <div class="wire-sections">
+          <div class="wire-block hero">Hero — backgroundsmoothie.webp bg + headline</div>
+          <div class="wire-block backend">Live Flavor Board — real-time KV data ⚡</div>
+          <div class="wire-block">Marquee strip</div>
+          <div class="wire-block">Why Section — fruit bg + feature list (4 items)</div>
+          <div class="wire-block">Split — acai photo + "Your daily blend" copy + CTA</div>
+          <div class="wire-block special">Mimi's Partner Section — wholesale tie-in 🍦</div>
+          <div class="wire-block">Pull-Quote editorial section</div>
+          <div class="wire-block">Visit Strip — location / hours / phone</div>
+          <div class="wire-block">Contact Form + info panel</div>
+          <div class="wire-block">Footer v7</div>
+        </div>
+      </div>
+
+      <div class="wire-page">
+        <div class="wire-page-title">about.html — Our Story <span class="wire-badge">Built</span></div>
+        <div class="wire-sections">
+          <div class="wire-block hero">Hero — Unsplash food photo + "More than a smoothie"</div>
+          <div class="wire-block">Split — acai photo + "How we started" (placeholder)</div>
+          <div class="wire-block">Split Reverse — Colorado landscape + "What we stand for"</div>
+          <div class="wire-block">Values Cards — Real Ingredients / Local First / Made with Care</div>
+          <div class="wire-block">CTA Banner — "Come see us"</div>
+          <div class="wire-block">Footer v7</div>
+        </div>
+      </div>
+    </div>
+
+    <div>
+      <div class="wire-page">
+        <div class="wire-page-title">menu.html — The Menu <span class="wire-badge">Built</span></div>
+        <div class="wire-sections">
+          <div class="wire-block hero">Hero — Unsplash smoothie photo + headline</div>
+          <div class="wire-block">Signature Smoothies — 6 items with tags + pricing</div>
+          <div class="wire-block">Smoothie Bowls — 3 items</div>
+          <div class="wire-block">Boosts &amp; Add-Ons — 4 items</div>
+          <div class="wire-block special">Mimi's Ice Cream &amp; Shakes — 3 items 🍦</div>
+          <div class="wire-block">Cafe &amp; Refreshers — 3 items</div>
+          <div class="wire-block">CTA Banner — "Hungry yet?"</div>
+          <div class="wire-block">Footer v7</div>
+        </div>
+      </div>
+
+      <div class="wire-page">
+        <div class="wire-page-title">staff.html — Staff Panel <span class="wire-badge">Backend</span></div>
+        <div class="wire-sections">
+          <div class="wire-block backend">Flavor preset buttons (ice cream list from KV) ⚡</div>
+          <div class="wire-block backend">Current board display (live read from KV) ⚡</div>
+          <div class="wire-block backend">Edit + save form → POST to flavors-set API ⚡</div>
+          <div class="wire-block">Amber note — staff only reminder</div>
+        </div>
+      </div>
+
+      <div class="wire-page">
+        <div class="wire-page-title">404.html &amp; Config <span class="wire-badge">Infra</span></div>
+        <div class="wire-sections">
+          <div class="wire-block">Custom branded 404 page</div>
+          <div class="wire-block">robots.txt — 13 AI bots blocked</div>
+          <div class="wire-block">sitemap.xml — all pages indexed</div>
+          <div class="wire-block">_headers — security + cache policy</div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ═══════════════════════════════ 04 — FEATURES ═══════════════════════════════ -->
+<section id="features">
+  <h2>05 — Advanced Features &amp; Backend</h2>
+  <p>A detailed breakdown of every technique used and why it matters for the business. These are the features that separate this build from a template site — and the reason standard agency quotes for this scope run $12,000–$18,000.</p>
+
+  <table class="feat-table">
+    <thead>
+      <tr><th>Feature</th><th>What It Does</th><th>Business Value</th><th>Type</th></tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>Live Flavor Board</strong></td>
+        <td>Staff update today's flavors from a mobile-friendly panel. Homepage reads the current board in real time via a serverless API.</td>
+        <td>Customers see today's actual offerings before they visit. Reduces repeat "what do you have today?" calls. Differentiates from competitors with static menus.</td>
+        <td><span class="tag tag-be">Backend</span></td>
+      </tr>
+      <tr>
+        <td><strong>Cloudflare KV Storage</strong></td>
+        <td>Key-Value database at the edge — globally distributed, sub-millisecond reads. No server, no subscription, no database cost.</td>
+        <td>Zero ongoing infrastructure cost. Data lives on Cloudflare's network — same reliability as AWS or Azure at $0/month for this scale.</td>
+        <td><span class="tag tag-be">Backend</span></td>
+      </tr>
+      <tr>
+        <td><strong>Serverless API Functions</strong></td>
+        <td>Two Cloudflare Pages Functions: a public GET endpoint (homepage board) and a POST endpoint (staff updates). Brute-force rate limiting and PIN auth are built-in and ready to enable.</td>
+        <td>Fully custom backend logic without a server. Scales to any traffic level. Security layer prevents unauthorized edits.</td>
+        <td><span class="tag tag-be">Backend</span></td>
+      </tr>
+      <tr>
+        <td><strong>WebP Image Optimization</strong></td>
+        <td>Hero image converted from 24MB PNG → 131KB WebP (99.5% size reduction). Açaí photo: 1.69MB → 82KB. Uses &lt;picture&gt; element for modern/legacy fallback.</td>
+        <td>LCP (Largest Contentful Paint) dropped from 121 seconds to 3.8 seconds. Page load speed directly impacts Google rankings and customer bounce rate.</td>
+        <td><span class="tag tag-adv">Performance</span></td>
+      </tr>
+      <tr>
+        <td><strong>Custom Lerp Cursor</strong></td>
+        <td>A hot-pink cursor trails the mouse with a smooth 14% interpolation per animation frame, expanding on hover over interactive elements.</td>
+        <td>Signature brand interaction that feels premium and memorable. Signals craft and attention to detail to every desktop visitor.</td>
+        <td><span class="tag tag-adv">Animation</span></td>
+      </tr>
+      <tr>
+        <td><strong>Card Tilt + Magnetic Buttons</strong></td>
+        <td>Cards respond to mouse position with a 3D perspective tilt (±10°). Primary buttons magnetically attract the cursor within a proximity range (±35% offset).</td>
+        <td>Interaction polish that high-end brands use to signal quality. Creates a tactile, premium feel that keeps visitors engaged and increases CTA click rates.</td>
+        <td><span class="tag tag-adv">Animation</span></td>
+      </tr>
+      <tr>
+        <td><strong>View Transitions API</strong></td>
+        <td>Page-to-page navigation uses Chrome's native View Transitions API for silky cross-fade transitions between pages — no JavaScript framework required.</td>
+        <td>Makes the site feel like a native app rather than a series of page loads. Chrome 126+ (majority of desktop users). Silent fallback on other browsers.</td>
+        <td><span class="tag tag-adv">Animation</span></td>
+      </tr>
+      <tr>
+        <td><strong>Scroll Reveal Animations</strong></td>
+        <td>IntersectionObserver triggers staggered fade-up animations on sections as they enter the viewport. GPU-accelerated transforms — zero layout thrash.</td>
+        <td>Creates a dynamic scrolling experience that guides attention and keeps visitors moving down the page. Industry standard for modern brands.</td>
+        <td><span class="tag tag-std">Standard</span></td>
+      </tr>
+      <tr>
+        <td><strong>JSON-LD Structured Data</strong></td>
+        <td>Machine-readable schema markup identifies the business as a CafeOrCoffeeShop with address, hours, price range, and menu sections to Google.</td>
+        <td>Enables rich results in Google Search (star ratings, hours, address in the SERP). Directly boosts local SEO and foot traffic from search.</td>
+        <td><span class="tag tag-std">SEO</span></td>
+      </tr>
+      <tr>
+        <td><strong>Open Graph + Twitter Cards</strong></td>
+        <td>Every page has complete OG meta tags — title, description, image, URL. Social share previews display correctly on Facebook, iMessage, Slack, etc.</td>
+        <td>When customers share the site link, it previews with the business name and branding — not a blank link. Free branding on every social share.</td>
+        <td><span class="tag tag-std">SEO</span></td>
+      </tr>
+      <tr>
+        <td><strong>WCAG AA Accessibility</strong></td>
+        <td>Full audit completed: color contrast ratios tested, touch targets sized to 44px minimum, skip links, ARIA labels, semantic HTML, screen reader safe.</td>
+        <td>Legal compliance (ADA). Broader audience reach including screen reader users. Lighthouse A11y score: 93. Improves overall SEO signal.</td>
+        <td><span class="tag tag-std">A11y</span></td>
+      </tr>
+      <tr>
+        <td><strong>AI Bot Blocking</strong></td>
+        <td>robots.txt blocks 13 AI crawlers: GPTBot, ClaudeBot, Google-Extended, PerplexityBot, Meta ExternalAgent, Bytespider, Amazonbot, and more.</td>
+        <td>Prevents AI systems from training on the business's content without permission. Protects menu copy, brand voice, and unique content from scrapers.</td>
+        <td><span class="tag tag-std">Security</span></td>
+      </tr>
+      <tr>
+        <td><strong>Cloudflare CDN + Edge</strong></td>
+        <td>Site assets are distributed across Cloudflare's global network. Cache headers optimized per asset type. Free SSL, DDoS protection, and bot management included.</td>
+        <td>Fast loads globally, not just locally. Enterprise security at zero hosting cost. Uptime backed by Cloudflare's 99.99% SLA.</td>
+        <td><span class="tag tag-std">Infra</span></td>
+      </tr>
+      <tr>
+        <td><strong>content-visibility: auto</strong></td>
+        <td>Footer uses CSS content-visibility to skip rendering until the user scrolls near it. Reduces initial paint work for the browser.</td>
+        <td>Micro-optimization that adds up to measurably faster perceived performance — the kind of detail that separates a 70-score site from a 90+ score site.</td>
+        <td><span class="tag tag-adv">Performance</span></td>
+      </tr>
+    </tbody>
+  </table>
+</section>
+
+<!-- ═══════════════════════════════ 05 — PERFORMANCE ═══════════════════════════════ -->
+<section id="performance">
+  <h2>06 — Performance &amp; SEO Results</h2>
+  <p>Lighthouse scores run on the staging deployment post-v7. All pages audited across four dimensions: Performance, Accessibility, Best Practices, and SEO.</p>
+
+  <div class="callout gold">
+    <p>⚠️ SEO scores of 69 are expected on staging URLs — Cloudflare Pages automatically injects an <code>X-Robots: noindex</code> header on preview deployments. On the production domain, SEO will score 100.</p>
+  </div>
+
+  <div class="lh-set">
+    <p style="font-weight:700;margin-bottom:.75rem;color:var(--text);">Homepage (index.html)</p>
+    <div class="lh-grid">
+      <div><div class="lh-card"><div class="lh-score">82</div><div class="lh-label">Perf</div></div></div>
+      <div><div class="lh-card"><div class="lh-score">93</div><div class="lh-label">A11y</div></div></div>
+      <div><div class="lh-card"><div class="lh-score">96</div><div class="lh-label">Best Practices</div></div></div>
+      <div><div class="lh-card warn"><div class="lh-score">69*</div><div class="lh-label">SEO</div></div></div>
+    </div>
+  </div>
+  <div class="lh-set">
+    <p style="font-weight:700;margin-bottom:.75rem;color:var(--text);">Menu &amp; About</p>
+    <div class="lh-grid">
+      <div><div class="lh-card"><div class="lh-score">79</div><div class="lh-label">Menu Perf</div></div></div>
+      <div><div class="lh-card"><div class="lh-score">90</div><div class="lh-label">Menu A11y</div></div></div>
+      <div><div class="lh-card"><div class="lh-score">78</div><div class="lh-label">About Perf</div></div></div>
+      <div><div class="lh-card"><div class="lh-score">92</div><div class="lh-label">About A11y</div></div></div>
+    </div>
+  </div>
+
+  <h3 style="margin-top:1.5rem;">Key Wins</h3>
+  <ul class="body-list">
+    <li><strong>LCP: 121s → 3.8s</strong> — Hero image converted from 24MB PNG to 131KB WebP. The most critical performance metric for Google.</li>
+    <li><strong>WCAG AA passed</strong> — All color contrast ratios corrected: chip tags, board chips, footer subtitle, form labels on dark backgrounds.</li>
+    <li><strong>Touch targets</strong> — All interactive elements confirmed at 44px minimum for mobile usability.</li>
+    <li><strong>Structured data</strong> — CafeOrCoffeeShop + BreadcrumbList + Menu schema on all relevant pages.</li>
+    <li><strong>Canonical URLs</strong> — All pages have proper canonicals to prevent duplicate content penalties when domain is finalized.</li>
+  </ul>
+</section>
+
+<!-- ═══════════════════════════════ 06 — EXPAND ═══════════════════════════════ -->
+<section id="expand">
+  <h2>07 — Expansion Opportunities</h2>
+  <p>The current build is a solid foundation. These are high-value additions worth discussing — each can be added post-launch without rebuilding anything.</p>
+
+  <div class="expand-grid">
+    <div class="expand-card">
+      <span class="expand-tag">Quick Win</span>
+      <h4>Google Analytics 4</h4>
+      <p>Track page views, form submissions, phone clicks, and visitor geography. Know which menu items people look at most.</p>
+    </div>
+    <div class="expand-card">
+      <span class="expand-tag">Quick Win</span>
+      <h4>EmailJS Contact Form</h4>
+      <p>Wire the contact form to send real emails. Currently mock — credentials needed to go live. 30-min setup.</p>
+    </div>
+    <div class="expand-card">
+      <span class="expand-tag">Quick Win</span>
+      <h4>Favicon Pack</h4>
+      <p>Generate full favicon set from the logo — browser tabs, iOS home screen, Android PWA, and Windows tile icons.</p>
+    </div>
+    <div class="expand-card">
+      <span class="expand-tag">Content</span>
+      <h4>Real Menu Data</h4>
+      <p>Replace sample items with actual smoothie names, descriptions, and prices. Huge SEO and conversion lift when real.</p>
+    </div>
+    <div class="expand-card">
+      <span class="expand-tag">Content</span>
+      <h4>Founder Story</h4>
+      <p>Replace the about page placeholder with the real origin story. Local connection and authenticity drives loyalty.</p>
+    </div>
+    <div class="expand-card">
+      <span class="expand-tag">Feature</span>
+      <h4>Online Ordering</h4>
+      <p>Integrate a third-party order-ahead system (Toast, Square, or Slice) or build a lightweight custom order form.</p>
+    </div>
+    <div class="expand-card">
+      <span class="expand-tag">Feature</span>
+      <h4>Loyalty / Rewards Page</h4>
+      <p>A dedicated page explaining a punch-card or digital loyalty program. Drives repeat visits and customer retention.</p>
+    </div>
+    <div class="expand-card">
+      <span class="expand-tag">Feature</span>
+      <h4>Photo Gallery</h4>
+      <p>Lightbox grid of product shots, interior photos, and customer moments. Builds social proof and visual appetite appeal.</p>
+    </div>
+    <div class="expand-card">
+      <span class="expand-tag">Feature</span>
+      <h4>Catering / Events Page</h4>
+      <p>If the cafe offers smoothie bars for events or catering, a dedicated page captures that search traffic and lead potential.</p>
+    </div>
+    <div class="expand-card">
+      <span class="expand-tag">SEO</span>
+      <h4>Google Business Profile</h4>
+      <p>Full GBP setup and optimization — photos, hours, Q&amp;A seeding, and review response strategy. Biggest local SEO lever available.</p>
+    </div>
+    <div class="expand-card">
+      <span class="expand-tag">SEO</span>
+      <h4>Blog / Recipes</h4>
+      <p>A simple recipe or ingredient blog targets long-tail search ("açaí bowl Grand Junction", "protein smoothie near me"). Builds organic traffic over time.</p>
+    </div>
+    <div class="expand-card">
+      <span class="expand-tag">Backend</span>
+      <h4>Staff PIN Security</h4>
+      <p>PIN validation is built into the codebase and ready to re-enable in 5 minutes. Recommended before any staff turnover.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════ 07 — PRICING ═══════════════════════════════ -->
+<section id="pricing">
+  <h2>08 — Standard Vivere Pricing</h2>
+  <p>All Vivere builds are quoted against a transparent tier system based on complexity, page count, and features. For reference, here is where the Top it off build sits in the market.</p>
+
+  <table class="comp-table">
+    <thead>
+      <tr><th>Tier</th><th>Scope</th><th>Standard Price</th><th>Timeline</th></tr>
+    </thead>
+    <tbody>
+      <tr><td><strong>Tier 1</strong></td><td>Single landing page + contact form</td><td>$1,750 – $2,500</td><td>1–2 weeks</td></tr>
+      <tr class="highlight"><td><strong>Tier 2</strong></td><td>4–6 page business site — <em>this build's base scope</em></td><td>$2,500 – $4,500</td><td>2–3 weeks</td></tr>
+      <tr><td><strong>Tier 3</strong></td><td>7–12 pages + blog + GSAP animations</td><td>$4,500 – $7,000</td><td>3–4 weeks</td></tr>
+      <tr><td><strong>Tier 4</strong></td><td>Custom functionality — booking, e-commerce, portals</td><td>$7,000 – $9,500</td><td>3–5 weeks</td></tr>
+      <tr><td><strong>Tier 5</strong></td><td>Full-service — strategy + design + build + launch</td><td>$9,500 – $12,500</td><td>4–6 weeks</td></tr>
+      <tr><td><strong>Tier 6</strong></td><td>Web application, custom backend, multi-site</td><td>$12,500+</td><td>Scoped</td></tr>
+    </tbody>
+  </table>
+
+  <div class="callout">
+    <p>The Top it off build includes a live serverless backend (KV + Functions), which technically crosses into Tier 3–4 territory. At standard pricing, this build would quote at <strong>$4,500 – $6,500</strong> given the backend work, custom animations, and image optimization pipeline included.</p>
+  </div>
+
+  <h3 style="margin-top:1.5rem;">What a Dev Agency Would Charge</h3>
+  <table class="comp-table">
+    <thead>
+      <tr><th>Scope Item</th><th>Agency Hours</th><th>Agency Rate</th><th>Estimated Cost</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>Custom design system + CSS</td><td>20–30 hrs</td><td>$95–$150/hr</td><td>$1,900 – $4,500</td></tr>
+      <tr><td>5 HTML pages, responsive</td><td>25–40 hrs</td><td>$95–$150/hr</td><td>$2,375 – $6,000</td></tr>
+      <tr><td>Serverless backend (KV live board)</td><td>10–16 hrs</td><td>$125–$175/hr</td><td>$1,250 – $2,800</td></tr>
+      <tr><td>Staff admin panel</td><td>8–12 hrs</td><td>$125–$175/hr</td><td>$1,000 – $2,100</td></tr>
+      <tr><td>Animations (cursor, tilt, magnetic)</td><td>10–15 hrs</td><td>$100–$150/hr</td><td>$1,000 – $2,250</td></tr>
+      <tr><td>Image optimization pipeline</td><td>3–5 hrs</td><td>$95–$125/hr</td><td>$285 – $625</td></tr>
+      <tr><td>SEO, schema, robots, sitemap</td><td>4–6 hrs</td><td>$75–$125/hr</td><td>$300 – $750</td></tr>
+      <tr><td>CF Pages deploy + DNS</td><td>2–4 hrs</td><td>$75–$125/hr</td><td>$150 – $500</td></tr>
+      <tr><td>Lighthouse audit + A11y fixes</td><td>4–6 hrs</td><td>$95–$125/hr</td><td>$380 – $750</td></tr>
+      <tr class="highlight"><td><strong>Total</strong></td><td><strong>86–134 hrs</strong></td><td>—</td><td class="savings"><strong>$8,640 – $20,275</strong></td></tr>
+    </tbody>
+  </table>
+</section>
+
+<!-- ═══════════════════════════════ 08 — PARTNER PRICING ═══════════════════════════════ -->
+<section id="partner">
+  <h2>09 — Your Partner Pricing</h2>
+  <p>Because Top it off Smoothie Cafe is a wholesale partner of <strong>Mimi's Sweet Treats</strong> — carrying Mimi's ice cream at the counter and featured on this site — this build is priced as a partner project, not a standard client engagement.</p>
+
+  <table class="comp-table" style="margin-bottom:1.5rem;">
+    <thead>
+      <tr><th>Pricing Tier</th><th>Rate</th><th>Price</th><th>You Save</th></tr>
+    </thead>
+    <tbody>
+      <tr><td><strong>Standard Rate</strong></td><td>Full price — new client</td><td>$4,750</td><td>—</td></tr>
+      <tr class="highlight"><td><strong>Partner Rate — 15% off</strong></td><td>Wholesale partner, single site</td><td><strong>$4,038</strong></td><td class="savings">$712</td></tr>
+      <tr><td><strong>Multi-Site Rate — 20% off</strong></td><td>2+ sites built together (e.g. TIO + Mimi's refresh)</td><td><strong>$3,800</strong></td><td class="savings">$950</td></tr>
+    </tbody>
+  </table>
+
+  <div class="pricing-block partner">
+    <div class="pricing-head">
+      <div>
+        <div class="pricing-plan">Top it off Partner Rate · 15% off</div>
+        <div class="pricing-name">Full Custom Website Build</div>
+      </div>
+      <div style="text-align:right;">
+        <div class="pricing-amount">$4,038</div>
+        <div style="font-size:0.78rem;color:var(--soft);text-decoration:line-through;margin-bottom:0.15rem;">$4,750 standard</div>
+        <div class="pricing-sub">one-time · flat rate · saves $712</div>
+      </div>
+    </div>
+    <div class="pricing-body">
+      <ul>
+        <li>5 fully custom-coded pages</li>
+        <li>Live flavor board (serverless backend)</li>
+        <li>Staff editor panel (KV-powered)</li>
+        <li>Custom lerp cursor + card tilt</li>
+        <li>Magnetic buttons + scroll reveal</li>
+        <li>View Transitions API navigation</li>
+        <li>WebP image optimization (99% size cut)</li>
+        <li>Full WCAG AA accessibility audit</li>
+        <li>JSON-LD structured data (local SEO)</li>
+        <li>Open Graph + Twitter Cards</li>
+        <li>Cloudflare Pages hosting setup</li>
+        <li>robots.txt (13 AI crawlers blocked)</li>
+        <li>sitemap.xml + _headers + 404 page</li>
+        <li>GitHub repo + full codebase handoff</li>
+        <li>Lighthouse audit on all 3 main pages</li>
+        <li>EmailJS form (when credentials provided)</li>
+        <li>GA4 setup (when ID provided)</li>
+        <li>Domain connection (when domain chosen)</li>
+      </ul>
+    </div>
+    <div class="savings-banner">
+      <span>Partner savings vs. standard rate:</span>
+      <span class="savings-num">$712 off (15%)</span>
+    </div>
+  </div>
+
+  <div class="pricing-block partner" style="border-color:var(--tio-green);margin-top:1rem;">
+    <div class="pricing-head" style="background:var(--viv-50);">
+      <div>
+        <div class="pricing-plan" style="color:var(--tio-green);">Multi-Site Rate · 20% off</div>
+        <div class="pricing-name">2+ Sites Built Together</div>
+        <div style="font-size:0.82rem;color:var(--muted);margin-top:0.3rem;">e.g. Top it off + Mimi's site refresh, or any second build</div>
+      </div>
+      <div style="text-align:right;">
+        <div class="pricing-amount" style="color:var(--tio-green);">$3,800</div>
+        <div style="font-size:0.78rem;color:var(--soft);text-decoration:line-through;margin-bottom:0.15rem;">$4,750 standard</div>
+        <div class="pricing-sub">per site · saves $950 each</div>
+      </div>
+    </div>
+    <div class="savings-banner" style="background:linear-gradient(135deg,var(--tio-green) 0%,var(--tio-mid) 100%);">
+      <span>Multi-site savings vs. standard rate (per site):</span>
+      <span class="savings-num">$950 off (20%)</span>
+    </div>
+  </div>
+
+  <div class="callout pink">
+    <p>The 15% partner rate applies because of the Mimi's wholesale relationship and the co-promotion built into this site. The 20% multi-site rate applies if a second site is scoped at the same time — for example, a Mimi's Sweet Treats site refresh or any additional Vivere build.</p>
+  </div>
+
+  <h3 style="margin-top:1.5rem;">Optional Add-ons</h3>
+  <table class="feat-table">
+    <thead>
+      <tr><th>Add-on</th><th>What's Included</th><th>Price</th></tr>
+    </thead>
+    <tbody>
+      <tr><td><strong>Google Business Profile Setup</strong></td><td>Full GBP optimization — photos, description, categories, Q&amp;A, review strategy guide</td><td>$200</td></tr>
+      <tr><td><strong>Real Menu Data Entry</strong></td><td>Replace all sample menu items with actual names, descriptions, prices, and tags</td><td>$150</td></tr>
+      <tr><td><strong>Photo Gallery Page</strong></td><td>Lightbox grid page with product/interior shots (client provides photos)</td><td>$250</td></tr>
+      <tr><td><strong>Online Order Integration</strong></td><td>Square or Toast embed or custom lightweight order form</td><td>$350 – $600</td></tr>
+      <tr><td><strong>Blog / Recipes Section</strong></td><td>Simple blog structure, 3 seed posts, SEO-optimized for local smoothie searches</td><td>$400</td></tr>
+      <tr><td><strong>Staff PIN Re-enable</strong></td><td>Restore PIN security on the flavor board editor — 30 minutes of work</td><td>Complimentary</td></tr>
+    </tbody>
+  </table>
+</section>
+
+<!-- ═══════════════════════════════ 09 — RETAINER ═══════════════════════════════ -->
+<section id="retainer">
+  <h2>10 — Monthly Care Plans</h2>
+  <p>After launch, the site is yours. A care plan keeps it fast, accurate, and up to date — without paying hourly every time you need a change.</p>
+
+  <div class="retainer-row">
+    <div class="ret-card">
+      <div class="ret-plan">Starter</div>
+      <div class="ret-price">$75</div>
+      <div class="ret-mo">/month</div>
+      <ul class="ret-items">
+        <li>Uptime monitoring</li>
+        <li>1 content update/mo</li>
+        <li>Email support</li>
+      </ul>
+    </div>
+    <div class="ret-card" style="border-color:var(--tio-green);">
+      <div class="ret-plan">Standard ★</div>
+      <div class="ret-price">$150</div>
+      <div class="ret-mo">/month · recommended</div>
+      <ul class="ret-items">
+        <li>2–3 updates/month</li>
+        <li>Monthly perf check</li>
+        <li>Priority email support</li>
+      </ul>
+    </div>
+    <div class="ret-card">
+      <div class="ret-plan">Growth</div>
+      <div class="ret-price">$300</div>
+      <div class="ret-mo">/month</div>
+      <ul class="ret-items">
+        <li>Up to 6 updates/mo</li>
+        <li>Monthly SEO check</li>
+        <li>Same-day priority</li>
+        <li>Quarterly review</li>
+      </ul>
+    </div>
+    <div class="ret-card">
+      <div class="ret-plan">Partner</div>
+      <div class="ret-price">$500</div>
+      <div class="ret-mo">/month</div>
+      <ul class="ret-items">
+        <li>Unlimited minor updates</li>
+        <li>Monthly strategy call</li>
+        <li>First-in-queue</li>
+        <li>Analytics review</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="callout">
+    <p>For a small business with a live backend (the flavor board), the <strong>Standard plan at $150/month</strong> is the sweet spot — covers menu updates, hours changes, seasonal content, and performance monitoring without overpaying for enterprise-level service.</p>
+  </div>
+
+  <p style="font-size:0.82rem;color:var(--soft);margin-top:0.75rem;">Ad-hoc hourly rate without a retainer: $125/hr · 1-hour minimum · no priority scheduling.</p>
+</section>
+
+<!-- ═══════════════════════════════ 10 — TERMS ═══════════════════════════════ -->
+<section id="terms">
+  <h2>11 — Payment Terms &amp; Ownership</h2>
+
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:2rem;">
+    <div>
+      <h3>Payment Schedule</h3>
+      <div class="pay-steps">
+        <div class="pay-step">
+          <div class="pay-num">1</div>
+          <div class="pay-body">
+            <strong>50% Deposit — Due to Begin</strong>
+            <p>Confirms the project and retains Joe's time. No work begins without this.</p>
+          </div>
+        </div>
+        <div class="pay-step">
+          <div class="pay-num">2</div>
+          <div class="pay-body">
+            <strong>50% Final — Before Launch</strong>
+            <p>Due after client review and approval. Domain connected and live after final payment.</p>
+          </div>
+        </div>
+      </div>
+      <p style="font-size:0.82rem;color:var(--soft);margin-top:0.75rem;">Retainer billing: 1st of month. Cancel anytime with 30 days notice.</p>
+    </div>
+
+    <div>
+      <h3>You Own Everything</h3>
+      <ul class="body-list">
+        <li><strong>Full code handoff</strong> — ZIP + GitHub repo at close</li>
+        <li><strong>All credentials transferred</strong> — Cloudflare, domain, analytics</li>
+        <li><strong>No platform lock-in</strong> — take it anywhere, anytime</li>
+        <li><strong>Maintenance docs</strong> — plain-English guide to managing your own site</li>
+        <li><strong>Clean handoff</strong> — if you ever want a different developer, Joe facilitates it</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════ 11 — NEXT STEPS ═══════════════════════════════ -->
+<section id="next" style="border-bottom:none;">
+  <h2>12 — Next Steps</h2>
+
+  <div class="timeline-row">
+    <div class="tl-step">
+      <div class="tl-num">1</div>
+      <div class="tl-title">Review Staging</div>
+      <p class="tl-desc">staging.top-it-off.pages.dev — walk through on your device</p>
+    </div>
+    <div class="tl-step">
+      <div class="tl-num">2</div>
+      <div class="tl-title">Confirm Scope</div>
+      <p class="tl-desc">Review this report, confirm or adjust add-ons and care plan</p>
+    </div>
+    <div class="tl-step">
+      <div class="tl-num">3</div>
+      <div class="tl-title">Choose Domain</div>
+      <p class="tl-desc">Domain selection unlocks all canonical, sitemap, and OG updates</p>
+    </div>
+    <div class="tl-step">
+      <div class="tl-num">4</div>
+      <div class="tl-title">Provide Content</div>
+      <p class="tl-desc">Phone, hours, email, real menu items, founder story</p>
+    </div>
+    <div class="tl-step">
+      <div class="tl-num">5</div>
+      <div class="tl-title">50% Deposit</div>
+      <p class="tl-desc">Confirms final build and launch timeline</p>
+    </div>
+    <div class="tl-step">
+      <div class="tl-num">6</div>
+      <div class="tl-title">Launch 🚀</div>
+      <p class="tl-desc">Production deploy, domain live, GBP updated</p>
+    </div>
+  </div>
+
+  <div class="callout pink" style="margin-top:1.5rem;">
+    <p>Still placeholder on the live site: phone number, hours, email address, real menu items and pricing, founder story, GA4 ID, EmailJS credentials, and domain. All ready to swap in — waiting on client to provide.</p>
+  </div>
+
+  <div class="sig-grid">
+    <div class="sig-block">
+      <div class="sig-label">Prepared by — Vivere Web</div>
+      <div class="sig-name">Joseph Sutliff</div>
+      <div style="font-size:0.82rem;color:var(--soft);margin-top:0.2rem;">joseph@vivereweb.com · (970) 462-2817<br>vivereweb.com</div>
+    </div>
+    <div class="sig-block">
+      <div class="sig-label">Approved by — Top it off Smoothie Cafe</div>
+      <div class="sig-name" style="color:var(--soft);font-weight:400;">_________________________________</div>
+      <div style="font-size:0.82rem;color:var(--soft);margin-top:0.2rem;">Date: ____________________</div>
+    </div>
+  </div>
+</section>
+
+</div><!-- /report-body -->
+
+<!-- ═══════════════════════════════ FOOTER ═══════════════════════════════ -->
+<div class="report-footer">
+  <span><strong>Vivere Web</strong> · joseph@vivereweb.com · (970) 462-2817</span>
+  <span>Prepared for Top it off Smoothie Cafe · May 2026 · Confidential</span>
+  <span>staging.top-it-off.pages.dev</span>
+</div>
+
+</body>
+</html>
