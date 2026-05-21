@@ -1,5 +1,5 @@
 /* ════════════════════════════════════════════════════
-   VIVERE FRAMEWORK — styles.css v16 — Top it off Smoothie Cafe
+   VIVERE FRAMEWORK — styles.css v17 — Top it off Smoothie Cafe
    Brand: forest green #14502e · hot pink #e8197d · leaf #6fbf44
    ════════════════════════════════════════════════════ */
 
@@ -828,13 +828,7 @@ body > * { position: relative; z-index: 1; }
     0 16px 36px -10px rgba(90,0,40,.6),
     0 44px 70px -28px rgba(60,0,28,.55);
 }
-.energy-card-icon {
-  display: inline-grid; place-items: center;
-  width: 52px; height: 52px; margin: 0 auto .9rem;
-  border-radius: 50%; font-size: 1.5rem;
-  background: rgba(255,255,255,.9);
-  box-shadow: 0 6px 16px -4px rgba(60,0,28,.5), inset 0 0 0 1px rgba(255,255,255,.6);
-}
+
 .energy-stat-number {
   display: flex; align-items: baseline; justify-content: center; gap: .15rem;
   font-family: var(--font-display); font-weight: 800;
