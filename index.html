@@ -25,8 +25,8 @@
   <meta name="twitter:description" content="Hand-blended fruit smoothies, açaí bowls & fresh juice in Grand Junction, CO. Top it off your way.">
   <meta name="twitter:image" content="https://top-it-off.pages.dev/assets/logo.jpg">
 
-  <link rel="preload" href="styles.css?v=5" as="style">
-  <link rel="stylesheet" href="styles.css?v=5">
+  <link rel="preload" href="styles.css?v=6" as="style">
+  <link rel="stylesheet" href="styles.css?v=6">
   <link rel="prefetch" href="menu.html">
   <link rel="prefetch" href="about.html">
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -166,28 +166,36 @@
           <h2 class="section-title">Built on <em>real fruit</em> &amp; good vibes</h2>
           <p class="section-lead">Every cup is blended to order — no powders pretending to be fruit, no syrupy shortcuts.</p>
         </div>
-        <div class="bento">
-          <article class="card scroll-fade-up">
-            <div class="card-icon">🍓</div>
-            <h3>Real Fruit, Always</h3>
-            <p>Strawberries, bananas, blueberries, mango — blended fresh so every sip actually tastes like fruit.</p>
-          </article>
-          <article class="card scroll-fade-up">
-            <div class="card-icon">🥣</div>
-            <h3>Loaded Bowls</h3>
-            <p>Thick smoothie bowls topped with granola, fresh fruit, and your favorite crunch. Build it your way.</p>
-          </article>
-          <article class="card scroll-fade-up">
-            <div class="card-icon">⚡</div>
-            <h3>Boost It</h3>
-            <p>Add protein, greens, or an energy boost. A treat that actually fuels your day.</p>
-          </article>
-          <article class="card scroll-fade-up">
-            <div class="card-icon">🌿</div>
-            <h3>Better-For-You</h3>
-            <p>Dairy-free, vegan, and lighter options on the board — something fresh for everyone.</p>
-          </article>
-        </div>
+        <ul class="feature-list" role="list">
+          <li class="feature-item scroll-fade-up">
+            <span class="feature-icon" aria-hidden="true">🍓</span>
+            <div class="feature-body">
+              <h3>Real Fruit, Always</h3>
+              <p>Strawberries, bananas, blueberries, mango — blended fresh so every sip actually tastes like fruit.</p>
+            </div>
+          </li>
+          <li class="feature-item scroll-fade-up">
+            <span class="feature-icon" aria-hidden="true">🥣</span>
+            <div class="feature-body">
+              <h3>Loaded Bowls</h3>
+              <p>Thick smoothie bowls topped with granola, fresh fruit, and your favorite crunch. Build it your way.</p>
+            </div>
+          </li>
+          <li class="feature-item scroll-fade-up">
+            <span class="feature-icon" aria-hidden="true">⚡</span>
+            <div class="feature-body">
+              <h3>Boost It</h3>
+              <p>Add protein, greens, or an energy boost. A treat that actually fuels your day.</p>
+            </div>
+          </li>
+          <li class="feature-item scroll-fade-up">
+            <span class="feature-icon" aria-hidden="true">🌿</span>
+            <div class="feature-body">
+              <h3>Better-For-You</h3>
+              <p>Dairy-free, vegan, and lighter options on the board — something fresh for everyone.</p>
+            </div>
+          </li>
+        </ul>
       </div>
     </section>
 
@@ -244,22 +252,30 @@
           <span class="section-eyebrow">Visit Us</span>
           <h2 class="section-title">Come <em>top it off</em></h2>
         </div>
-        <div class="bento">
-          <article class="card scroll-fade-up">
-            <div class="card-icon">📍</div>
-            <h3>Location</h3>
-            <p>2692 US-50, Suite I<br>Grand Junction, CO 81503</p>
-          </article>
-          <article class="card scroll-fade-up">
-            <div class="card-icon">🕒</div>
-            <h3>Hours</h3>
-            <p><span class="ph">[Mon–Sat 8am–7pm · Sun 9am–5pm — confirm]</span></p>
-          </article>
-          <article class="card scroll-fade-up">
-            <div class="card-icon">📞</div>
-            <h3>Call / Text</h3>
-            <p><span class="ph">[(970) XXX-XXXX]</span></p>
-          </article>
+        <div class="visit-strip scroll-fade-up">
+          <div class="visit-item">
+            <span class="visit-item-icon" aria-hidden="true">📍</span>
+            <div class="visit-item-body">
+              <strong>Location</strong>
+              <p>2692 US-50, Suite I<br>Grand Junction, CO 81503</p>
+            </div>
+          </div>
+          <div class="visit-divider" aria-hidden="true"></div>
+          <div class="visit-item">
+            <span class="visit-item-icon" aria-hidden="true">🕒</span>
+            <div class="visit-item-body">
+              <strong>Hours</strong>
+              <p><span class="ph">[Mon–Sat 8am–7pm · Sun 9am–5pm — confirm]</span></p>
+            </div>
+          </div>
+          <div class="visit-divider" aria-hidden="true"></div>
+          <div class="visit-item">
+            <span class="visit-item-icon" aria-hidden="true">📞</span>
+            <div class="visit-item-body">
+              <strong>Call / Text</strong>
+              <p><span class="ph">[(970) XXX-XXXX]</span></p>
+            </div>
+          </div>
         </div>
       </div>
     </section>
@@ -303,32 +319,29 @@
 
   <footer class="footer">
     <div class="footer-inner">
-      <div class="footer-brand">
-        <h4>Top it off Smoothie Cafe</h4>
-        <p>Fresh fruit smoothies, bowls, and good vibes in Grand Junction, CO. Top it off your way.</p>
-        <p style="margin-top:.6rem;font-size:.85rem;opacity:.85;">2692 US-50, Suite I · Grand Junction, CO 81503</p>
+      <div class="footer-top">
+        <div>
+          <p class="footer-brand-name">Top it off</p>
+          <span class="footer-brand-sub">Smoothie Cafe · Grand Junction, CO</span>
+          <p class="footer-tagline">Real fruit. Made to order. Top it off your way — smoothies, bowls, and Mimi's ice cream on the counter.</p>
+        </div>
+        <address class="footer-address">
+          <p>2692 US-50, Suite I<br>Grand Junction, CO 81503</p>
+          <a href="https://www.facebook.com/profile.php?id=61588963153511" target="_blank" rel="noopener" class="footer-social">Facebook →</a>
+          <a href="https://www.mimissweettreats.com" target="_blank" rel="noopener" class="footer-social">Mimi's Sweet Treats →</a>
+        </address>
       </div>
-      <div>
-        <h4>Explore</h4>
-        <ul>
-          <li><a href="index.html">Home</a></li>
-          <li><a href="menu.html">Menu</a></li>
-          <li><a href="about.html">About</a></li>
-          <li><a href="#visit">Visit</a></li>
-        </ul>
+      <nav class="footer-nav" aria-label="Footer navigation">
+        <a href="index.html">Home</a>
+        <a href="menu.html">Menu</a>
+        <a href="about.html">About</a>
+        <a href="#visit">Visit</a>
+        <a href="#contact">Contact</a>
+      </nav>
+      <div class="footer-bottom">
+        <span>&copy; <span id="year"></span> Top it off Smoothie Cafe. All rights reserved.</span>
+        <span>Crafted by <a href="https://vivereweb.com" target="_blank" rel="noopener">Vivere Web</a> <a href="staff.html" class="footer-staff" title="Staff">·</a></span>
       </div>
-      <div>
-        <h4>Connect</h4>
-        <ul>
-          <li><a href="https://www.facebook.com/profile.php?id=61588963153511" target="_blank" rel="noopener">Facebook</a></li>
-          <li><a href="#contact">Contact</a></li>
-          <li><a href="https://www.mimissweettreats.com" target="_blank" rel="noopener">Mimi's Ice Cream</a></li>
-        </ul>
-      </div>
-    </div>
-    <div class="footer-bottom">
-      <span>&copy; <span id="year"></span> Top it off Smoothie Cafe. All rights reserved. <a href="staff.html" style="opacity:.35;margin-left:.35rem;">Staff</a></span>
-      <span>Crafted by <a href="https://vivereweb.com" target="_blank" rel="noopener">Vivere Web</a></span>
     </div>
   </footer>
 
