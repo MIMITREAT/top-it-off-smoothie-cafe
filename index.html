@@ -3,17 +3,34 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Top it off Smoothie Cafe — fresh fruit smoothies, bowls, and good vibes in Grand Junction, CO. Real fruit, real energy. Top it off your way.">
+  <meta name="description" content="Top it off Smoothie Cafe in Grand Junction, CO — hand-blended fruit smoothies, açaí & smoothie bowls, fresh juice, protein shakes, and local Mimi's ice cream. Real fruit, real energy. Top it off your way.">
+  <meta name="keywords" content="smoothie cafe Grand Junction, smoothies Grand Junction CO, açaí bowls, smoothie bowls, fresh juice, protein shakes, fruit smoothies, healthy cafe, vegan smoothies, ice cream Grand Junction, Western Colorado smoothies">
+  <meta name="author" content="Top it off Smoothie Cafe">
+  <meta name="robots" content="index, follow">
   <meta name="theme-color" content="#14502e">
-  <title>Top it off Smoothie Cafe | Fresh Smoothies in Grand Junction, CO</title>
+  <meta name="geo.region" content="US-CO">
+  <meta name="geo.placename" content="Grand Junction, Colorado">
+  <title>Top it off Smoothie Cafe | Fresh Smoothies &amp; Bowls in Grand Junction, CO</title>
   <link rel="canonical" href="https://top-it-off.pages.dev/">
 
-  <meta property="og:title" content="Top it off Smoothie Cafe">
-  <meta property="og:description" content="Fresh fruit smoothies, bowls, and good vibes. Top it off your way — Grand Junction, CO.">
+  <!-- Favicon stack — ✏️ add assets/favicon.* + og-image.jpg (export from logo) -->
+  <link rel="icon" href="/assets/favicon.ico" sizes="any">
+  <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
+  <link rel="manifest" href="/site.webmanifest">
+
+  <meta property="og:title" content="Top it off Smoothie Cafe | Fresh Smoothies &amp; Bowls">
+  <meta property="og:description" content="Hand-blended fruit smoothies, açaí bowls, fresh juice, and local ice cream in Grand Junction, CO. Real fruit, real energy.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://top-it-off.pages.dev/">
   <meta property="og:site_name" content="Top it off Smoothie Cafe">
+  <meta property="og:image" content="https://top-it-off.pages.dev/assets/og-image.jpg">
+  <meta property="og:image:alt" content="Top it off Smoothie Cafe — fresh fruit smoothies">
+  <meta property="og:locale" content="en_US">
   <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Top it off Smoothie Cafe">
+  <meta name="twitter:description" content="Hand-blended fruit smoothies, açaí bowls & fresh juice in Grand Junction, CO. Top it off your way.">
+  <meta name="twitter:image" content="https://top-it-off.pages.dev/assets/og-image.jpg">
 
   <link rel="preload" href="styles.css?v=1" as="style">
   <link rel="stylesheet" href="styles.css?v=1">
@@ -27,11 +44,34 @@
     "@context": "https://schema.org",
     "@type": "CafeOrCoffeeShop",
     "name": "Top it off Smoothie Cafe",
-    "description": "Fresh fruit smoothies, smoothie bowls, and cafe treats in Grand Junction, Colorado.",
+    "description": "Grand Junction, Colorado's spot for hand-blended fruit smoothies, açaí and smoothie bowls, fresh juice, protein shakes, and local Mimi's Sweet Treats ice cream. Made to order with real fruit.",
     "url": "https://top-it-off.pages.dev/",
-    "servesCuisine": ["Smoothies", "Smoothie Bowls", "Cafe", "Juice"],
-    "address": { "@type": "PostalAddress", "addressLocality": "Grand Junction", "addressRegion": "CO", "addressCountry": "US" },
-    "areaServed": { "@type": "City", "name": "Grand Junction, Colorado" }
+    "logo": "https://top-it-off.pages.dev/assets/logo.webp",
+    "image": "https://top-it-off.pages.dev/assets/og-image.jpg",
+    "telephone": "+1-970-XXX-XXXX",
+    "priceRange": "$$",
+    "servesCuisine": ["Smoothies", "Smoothie Bowls", "Açaí Bowls", "Fresh Juice", "Ice Cream", "Cafe"],
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "[STREET ADDRESS]",
+      "addressLocality": "Grand Junction",
+      "addressRegion": "CO",
+      "postalCode": "[ZIP]",
+      "addressCountry": "US"
+    },
+    "openingHoursSpecification": [
+      { "@type": "OpeningHoursSpecification", "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"], "opens": "08:00", "closes": "19:00" },
+      { "@type": "OpeningHoursSpecification", "dayOfWeek": "Sunday", "opens": "09:00", "closes": "17:00" }
+    ],
+    "hasMenu": "https://top-it-off.pages.dev/menu.html",
+    "areaServed": [
+      { "@type": "City", "name": "Grand Junction, Colorado" },
+      { "@type": "City", "name": "Fruita, Colorado" },
+      { "@type": "City", "name": "Palisade, Colorado" }
+    ],
+    "sameAs": [
+      "https://www.facebook.com/profile.php?id=61588963153511"
+    ]
   }
   </script>
 </head>
@@ -231,7 +271,7 @@
     </div>
     <div class="footer-bottom">
       <span>&copy; <span id="year"></span> Top it off Smoothie Cafe. All rights reserved.</span>
-      <span>Crafted by <a href="https://vivereweb.com" target="_blank" rel="noopener">Vivere Colorado</a></span>
+      <span>Crafted by <a href="https://vivereweb.com" target="_blank" rel="noopener">Vivere Web</a></span>
     </div>
   </footer>
 
