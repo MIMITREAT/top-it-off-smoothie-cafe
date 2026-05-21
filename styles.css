@@ -1,5 +1,5 @@
 /* ════════════════════════════════════════════════════
-   VIVERE FRAMEWORK — styles.css v21 — Top it off Smoothie Cafe
+   VIVERE FRAMEWORK — styles.css v22 — Top it off Smoothie Cafe
    Brand: forest green #14502e · hot pink #e8197d · leaf #6fbf44
    ════════════════════════════════════════════════════ */
 
@@ -225,8 +225,8 @@ body > * { position: relative; z-index: 1; }
 .section { padding: var(--section-pad-y) 1.25rem; }
 .section--alt {
   background: #e4f1da;
-  /* compensate for section--dark diagonal overlap */
-  padding-top: calc(var(--section-pad-y) + 3vw);
+  /* compensate for section--dark diagonal overlap (-3vw margin-bottom on dark section) */
+  padding-top: calc(var(--section-pad-y) + 1.5vw);
   box-shadow: inset 0 1px 0 rgba(111,191,68,.18), inset 0 -1px 0 rgba(111,191,68,.12);
 }
 .section--warm { background: linear-gradient(160deg, #fff6fb 0%, #ffffff 100%); }
@@ -320,8 +320,25 @@ body > * { position: relative; z-index: 1; }
 .form-msg.err { color: var(--berry); }
 
 /* ── FOOTER v6 ── */
-.footer { background: #0a1e10; color: rgba(255,255,255,.78); padding: 4rem 1.25rem 0; }
-.footer-inner { max-width: 1160px; margin: 0 auto; }
+.footer {
+  background: #0a1e10;
+  color: rgba(255,255,255,.78);
+  padding: 4rem 1.25rem 0;
+  position: relative; isolation: isolate;
+}
+.footer::before {
+  content: '';
+  position: absolute; inset: 0; z-index: 0;
+  background: url('assets/footerimage.jpeg') center / cover no-repeat;
+  opacity: 0.30;
+  mix-blend-mode: luminosity;
+}
+.footer::after {
+  content: '';
+  position: absolute; inset: 0; z-index: 0; pointer-events: none;
+  background: linear-gradient(to bottom, rgba(10,30,16,.60) 0%, rgba(10,30,16,.50) 55%, rgba(10,30,16,.75) 100%);
+}
+.footer-inner { max-width: 1160px; margin: 0 auto; position: relative; z-index: 1; }
 .footer-top {
   display: grid; gap: 2.5rem;
   padding-bottom: 2.5rem;
@@ -955,8 +972,8 @@ body > * { position: relative; z-index: 1; }
   background: linear-gradient(160deg, #0e3a21 0%, #091e14 100%);
   color: #fff;
   position: relative; isolation: isolate;
-  /* compensate for board diagonal overlap */
-  padding-top: calc(var(--section-pad-y) + 3.5vw);
+  /* compensate for board diagonal overlap — 1.5vw is enough after -3.5vw margin-bottom on .board */
+  padding-top: calc(var(--section-pad-y) + 1.5vw);
   /* diagonal bottom flowing into next light section */
   clip-path: polygon(0 0, 100% 0, 100% calc(100% - 4vw), 0 100%);
   margin-bottom: -3vw;
