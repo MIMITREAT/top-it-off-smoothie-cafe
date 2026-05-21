@@ -1,5 +1,5 @@
 /* ════════════════════════════════════════════════════
-   VIVERE FRAMEWORK — styles.css v1 — Top it off Smoothie Cafe
+   VIVERE FRAMEWORK — styles.css v5 — Top it off Smoothie Cafe
    Brand: forest green #14502e · hot pink #e8197d · leaf #6fbf44
    ════════════════════════════════════════════════════ */
 
@@ -416,4 +416,127 @@ body > * { position: relative; z-index: 1; }
 .section-head .section-eyebrow::after {
   content: ''; display: block; width: 42px; height: 3px; margin: .6rem auto 0;
   background: linear-gradient(90deg, var(--accent), var(--accent-alt)); border-radius: 3px;
+}
+
+/* ════════════════════════════════════════════════════
+   ENHANCEMENTS v5 — Photos, Cursor, Tilt, Motion
+   ════════════════════════════════════════════════════ */
+
+/* ── VIEW TRANSITIONS (Chrome 126+, progressive) ── */
+@view-transition { navigation: auto; }
+::view-transition-old(root) { animation: vt-out .28s ease-out forwards; }
+::view-transition-new(root) { animation: vt-in .28s ease-in forwards; }
+@keyframes vt-out { to { opacity: 0; transform: translateY(10px); } }
+@keyframes vt-in { from { opacity: 0; transform: translateY(-10px); } }
+@media (prefers-reduced-motion: reduce) {
+  ::view-transition-old(root), ::view-transition-new(root) { animation: none; }
+}
+
+/* ── CUSTOM CURSOR (desktop only) ── */
+.cursor {
+  position: fixed; top: 0; left: 0;
+  width: 14px; height: 14px; border-radius: 50%;
+  background: var(--accent); pointer-events: none; z-index: 9999;
+  transform: translate(-50%, -50%);
+  transition: width .18s ease, height .18s ease, background .18s ease, border .18s ease, opacity .25s;
+  mix-blend-mode: multiply; will-change: left, top;
+}
+.cursor.is-hovering {
+  width: 38px; height: 38px;
+  background: transparent;
+  border: 2px solid var(--accent);
+  mix-blend-mode: normal;
+}
+.cursor.is-hidden { opacity: 0; }
+@media (pointer: coarse) { .cursor { display: none; } }
+
+/* ── HERO PHOTO BACKGROUND ── */
+.hero-bg {
+  position: absolute; inset: 0; width: 100%; height: 100%;
+  object-fit: cover; object-position: center 40%;
+  z-index: 0; opacity: .13; filter: saturate(1.6) contrast(1.05);
+  pointer-events: none;
+}
+
+/* ── SPLIT MEDIA WITH PHOTO ── */
+.split-media { overflow: hidden; }
+.split-media img {
+  width: 100%; height: 100%; min-height: 320px;
+  object-fit: cover; border-radius: var(--radius-xl);
+  display: block;
+  transition: transform .9s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+.split:hover .split-media img { transform: scale(1.04); }
+.split-media .split-photo-credit {
+  position: absolute; bottom: .6rem; right: .85rem;
+  font-size: .65rem; color: rgba(255,255,255,.55); letter-spacing: .02em;
+  pointer-events: none;
+}
+.split-media { position: relative; }
+
+/* ── PULL QUOTE ── */
+.pull-quote { padding: clamp(3rem, 7vw, 6rem) 1.25rem; text-align: center; background: var(--cream); }
+.pull-quote-inner { max-width: 960px; margin: 0 auto; }
+.pull-quote-mark { font-family: var(--font-display); font-size: 6rem; line-height: .6; color: var(--accent); opacity: .25; margin-bottom: 1rem; display: block; }
+.pull-quote-text {
+  font-family: var(--font-display); font-weight: 700;
+  font-size: clamp(1.9rem, 5vw, 4rem); line-height: 1.1;
+  color: var(--green-deep); letter-spacing: -.01em;
+}
+.pull-quote-text em { font-style: italic; color: var(--accent); }
+.pull-quote-attr { margin-top: 1.5rem; font-size: var(--text-sm); color: var(--fg-soft); font-weight: 500; letter-spacing: .04em; text-transform: uppercase; }
+
+/* ── CARD TILT ── */
+.card { transform-style: preserve-3d; perspective: 800px; }
+
+/* ── BOARD CHIP HOVER ── */
+.board-chip { transition: transform .18s ease, box-shadow .18s ease; }
+.board-chip:not(.board-chip--loading):hover {
+  transform: scale(1.07) translateY(-2px);
+  box-shadow: var(--shadow-md);
+}
+
+/* ── NOISE ON GREEN SECTIONS ── */
+.section--green { position: relative; isolation: isolate; }
+.section--green::before {
+  content: ''; position: absolute; inset: 0; z-index: 0; pointer-events: none;
+  opacity: .035; mix-blend-mode: overlay;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+.section--green > * { position: relative; z-index: 1; }
+
+/* ── IMPROVED SHADOW DEPTH ON CARDS ── */
+.card {
+  box-shadow: 0 1px 2px rgba(20,40,26,.04), 0 4px 12px rgba(20,40,26,.07), 0 16px 36px rgba(20,40,26,.05);
+}
+.card:hover {
+  box-shadow: 0 2px 4px rgba(20,40,26,.05), 0 8px 24px rgba(20,40,26,.12), 0 28px 56px rgba(20,40,26,.10);
+}
+
+/* ── CONTENT VISIBILITY (footer only — safe with IO) ── */
+.footer { content-visibility: auto; contain-intrinsic-size: 0 400px; }
+
+/* ── SCROLL MARGIN ON ANCHORS ── */
+#visit, #contact, #main-content { scroll-margin-top: 84px; }
+
+/* ── MAGNETIC BUTTON BASE ── */
+.btn--primary, .btn--green { will-change: transform; }
+
+/* ── HERO PHOTO SECTION REFINEMENT ── */
+.hero { background:
+  radial-gradient(120% 90% at 80% -10%, rgba(232,25,125,0.16), transparent 55%),
+  linear-gradient(160deg, rgba(255,255,255,0.97) 0%, rgba(246,251,244,0.95) 60%, rgba(238,247,234,0.93) 100%);
+}
+
+/* ── ABOUT / MENU PAGE PHOTO HERO ── */
+.hero--photo { background: var(--green-deep); color: #fff; }
+.hero--photo .hero-headline { color: #fff; }
+.hero--photo .hero-sub { color: rgba(255,255,255,.82); }
+.hero--photo .hero-badge { background: rgba(255,255,255,.15); border-color: rgba(255,255,255,.3); color: #fff; }
+.hero--photo .hero-bg { opacity: .28; filter: saturate(1.3); }
+.hero--photo::after { opacity: .22; }
+
+/* ── PARTNER BANNER DEPTH ── */
+.partner {
+  box-shadow: 0 1px 2px rgba(20,40,26,.04), 0 8px 32px rgba(20,40,26,.10), 0 24px 48px rgba(20,40,26,.07);
 }

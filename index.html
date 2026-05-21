@@ -25,8 +25,10 @@
   <meta name="twitter:description" content="Hand-blended fruit smoothies, açaí bowls & fresh juice in Grand Junction, CO. Top it off your way.">
   <meta name="twitter:image" content="https://top-it-off.pages.dev/assets/logo.jpg">
 
-  <link rel="preload" href="styles.css?v=4" as="style">
-  <link rel="stylesheet" href="styles.css?v=4">
+  <link rel="preload" href="styles.css?v=5" as="style">
+  <link rel="stylesheet" href="styles.css?v=5">
+  <link rel="prefetch" href="menu.html">
+  <link rel="prefetch" href="about.html">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="preload" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&family=Playfair+Display:ital,wght@0,600;0,700;0,800;1,500&family=Pacifico&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
@@ -69,6 +71,7 @@
   </script>
 </head>
 <body>
+  <div class="cursor" aria-hidden="true"></div>
   <div class="scroll-progress"></div>
   <a href="#main-content" class="skip-link">Skip to content</a>
 
@@ -102,6 +105,7 @@
 
     <!-- HERO -->
     <section class="hero" aria-label="Welcome to Top it off Smoothie Cafe">
+      <img class="hero-bg" src="https://images.unsplash.com/photo-1553530666-ba11a7da3888?auto=format&fit=crop&w=1600&q=75" alt="" aria-hidden="true" loading="eager" fetchpriority="high" width="1600" height="900">
       <span class="hero-blob hero-blob--pink" aria-hidden="true"></span>
       <span class="hero-blob hero-blob--green" aria-hidden="true"></span>
       <span class="hero-blob hero-blob--berry" aria-hidden="true"></span>
@@ -193,7 +197,9 @@
     <section class="section section--alt">
       <div class="section-inner">
         <div class="split scroll-fade-up">
-          <div class="split-media" aria-hidden="true">🥤</div>
+          <div class="split-media">
+            <img src="https://images.unsplash.com/photo-1546069901-ba9599a7e63c?auto=format&fit=crop&w=800&q=80" alt="Colorful smoothie bowl topped with fresh fruit and granola" loading="lazy" width="800" height="640">
+          </div>
           <div class="split-body">
             <h2>Your daily blend, done right</h2>
             <p>Top it off Smoothie Cafe is Grand Junction's spot for hand-blended smoothies and bowls that taste as good as they make you feel. Whether you're fueling a hike on the Monument or grabbing an afternoon pick-me-up, we've got a blend for that.</p>
@@ -217,6 +223,15 @@
           </div>
           <a href="https://www.mimissweettreats.com" target="_blank" rel="noopener" class="btn btn--primary">Meet Mimi's →</a>
         </div>
+      </div>
+    </section>
+
+    <!-- PULL QUOTE -->
+    <section class="pull-quote scroll-fade-up" aria-label="Our promise">
+      <div class="pull-quote-inner">
+        <span class="pull-quote-mark" aria-hidden="true">"</span>
+        <p class="pull-quote-text">Real fruit. Made to order.<br><em>Topped your way.</em></p>
+        <p class="pull-quote-attr">— Top it off Smoothie Cafe, Grand Junction CO</p>
       </div>
     </section>
 
@@ -317,6 +332,6 @@
     </div>
   </footer>
 
-  <script src="script.js?v=3"></script>
+  <script src="script.js?v=4"></script>
 </body>
 </html>

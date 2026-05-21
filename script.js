@@ -1,4 +1,4 @@
-/* Top it off Smoothie Cafe — Vivere Framework generic brain (no client secrets) */
+/* Top it off Smoothie Cafe — Vivere Framework v4 (no client secrets) */
 (function () {
   'use strict';
   document.documentElement.classList.add('js-loaded');
@@ -83,7 +83,70 @@
     msg.className = 'form-msg' + (cls ? ' ' + cls : '');
   }
 
-  /* Live board — fetch today's featured smoothies from /api/flavors-get */
+  /* ── Custom cursor (desktop only) ── */
+  var cursor = document.querySelector('.cursor');
+  if (cursor && window.matchMedia('(pointer: fine)').matches) {
+    var cx = window.innerWidth / 2, cy = window.innerHeight / 2;
+    var tx = cx, ty = cy, raf;
+    document.addEventListener('mousemove', function (e) { tx = e.clientX; ty = e.clientY; });
+    document.addEventListener('mouseleave', function () { cursor.classList.add('is-hidden'); });
+    document.addEventListener('mouseenter', function () { cursor.classList.remove('is-hidden'); });
+    var hoverEls = 'a, button, .btn, .board-chip, .card, input, textarea, select, label';
+    document.querySelectorAll(hoverEls).forEach(function (el) {
+      el.addEventListener('mouseenter', function () { cursor.classList.add('is-hovering'); });
+      el.addEventListener('mouseleave', function () { cursor.classList.remove('is-hovering'); });
+    });
+    function animateCursor() {
+      cx += (tx - cx) * 0.14;
+      cy += (ty - cy) * 0.14;
+      cursor.style.left = cx + 'px';
+      cursor.style.top  = cy + 'px';
+      raf = requestAnimationFrame(animateCursor);
+    }
+    animateCursor();
+  }
+
+  /* ── Card tilt on mousemove ── */
+  document.querySelectorAll('.card').forEach(function (card) {
+    card.addEventListener('mousemove', function (e) {
+      var r = card.getBoundingClientRect();
+      var x = (e.clientX - r.left) / r.width  - 0.5;
+      var y = (e.clientY - r.top)  / r.height - 0.5;
+      card.style.transform = 'perspective(800px) rotateY(' + (x * 10) + 'deg) rotateX(' + (-y * 8) + 'deg) translateY(-6px)';
+    });
+    card.addEventListener('mouseleave', function () {
+      card.style.transform = '';
+    });
+  });
+
+  /* ── Magnetic buttons ── */
+  document.querySelectorAll('.btn--primary, .btn--green').forEach(function (btn) {
+    btn.addEventListener('mousemove', function (e) {
+      var r = btn.getBoundingClientRect();
+      var dx = (e.clientX - (r.left + r.width  / 2)) * 0.35;
+      var dy = (e.clientY - (r.top  + r.height / 2)) * 0.35;
+      btn.style.transform = 'translate(' + dx + 'px, ' + dy + 'px)';
+    });
+    btn.addEventListener('mouseleave', function () {
+      btn.style.transform = '';
+    });
+  });
+
+  /* ── View Transitions for same-origin navigation ── */
+  if ('startViewTransition' in document) {
+    document.addEventListener('click', function (e) {
+      var a = e.target.closest('a[href]');
+      if (!a) return;
+      var href = a.getAttribute('href');
+      if (!href || href.startsWith('#') || href.startsWith('http') || a.target === '_blank') return;
+      e.preventDefault();
+      document.startViewTransition(function () {
+        window.location.href = href;
+      });
+    });
+  }
+
+  /* Live board — fetch today's ice cream flavors from /api/flavors-get */
   var boardItems = document.getElementById('board-items');
   var boardDate = document.getElementById('board-date');
   if (boardItems) {

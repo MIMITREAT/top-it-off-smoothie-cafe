@@ -30,14 +30,15 @@
   }
   </script>
 
-  <link rel="preload" href="styles.css?v=4" as="style">
-  <link rel="stylesheet" href="styles.css?v=4">
+  <link rel="preload" href="styles.css?v=5" as="style">
+  <link rel="stylesheet" href="styles.css?v=5">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="preload" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&family=Playfair+Display:ital,wght@0,600;0,700;0,800;1,500&family=Pacifico&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
   <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&family=Playfair+Display:ital,wght@0,600;0,700;0,800;1,500&family=Pacifico&display=swap"></noscript>
 </head>
 <body>
+  <div class="cursor" aria-hidden="true"></div>
   <div class="scroll-progress"></div>
   <a href="#main-content" class="skip-link">Skip to content</a>
 
@@ -67,7 +68,10 @@
 
   <main id="main-content" tabindex="-1">
 
-    <section class="hero" aria-label="About Top it off">
+    <section class="hero hero--photo" aria-label="About Top it off">
+      <img class="hero-bg" src="https://images.unsplash.com/photo-1490474418585-ba9bad8fd0ea?auto=format&fit=crop&w=1600&q=75" alt="" aria-hidden="true" loading="eager" width="1600" height="900">
+      <span class="hero-blob hero-blob--pink" aria-hidden="true"></span>
+      <span class="hero-blob hero-blob--green" aria-hidden="true"></span>
       <div class="hero-inner">
         <span class="hero-badge"><span class="dot"></span> Our Story</span>
         <h1 class="hero-headline">More than a <em>smoothie</em>.</h1>
@@ -78,7 +82,9 @@
     <section class="section">
       <div class="section-inner">
         <div class="split scroll-fade-up">
-          <div class="split-media" aria-hidden="true">🍓</div>
+          <div class="split-media">
+            <img src="https://images.unsplash.com/photo-1553530666-ba11a7da3888?auto=format&fit=crop&w=800&q=80" alt="Fresh colorful fruit smoothies lined up on a counter" loading="lazy" width="800" height="640">
+          </div>
           <div class="split-body">
             <h2>How we started</h2>
             <p><span class="ph">[Founder story placeholder — who started Top it off, the spark behind it, and what makes it personal. Pull real details from the owner / Facebook.]</span></p>
@@ -91,7 +97,9 @@
     <section class="section section--alt">
       <div class="section-inner">
         <div class="split split--reverse scroll-fade-up">
-          <div class="split-media" aria-hidden="true">🌿</div>
+          <div class="split-media">
+            <img src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?auto=format&fit=crop&w=800&q=80" alt="Scenic Colorado landscape — the community Top it off calls home" loading="lazy" width="800" height="640">
+          </div>
           <div class="split-body">
             <h2>What we stand for</h2>
             <p>Fresh ingredients, friendly faces, and a spot that feels like home. We're proud to be part of the Grand Junction community — fueling hikes, study sessions, work breaks, and everything in between.</p>
@@ -141,6 +149,6 @@
     </div>
   </footer>
 
-  <script src="script.js?v=3"></script>
+  <script src="script.js?v=4"></script>
 </body>
 </html>
