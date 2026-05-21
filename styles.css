@@ -1,5 +1,5 @@
 /* ════════════════════════════════════════════════════
-   VIVERE FRAMEWORK — styles.css v15 — Top it off Smoothie Cafe
+   VIVERE FRAMEWORK — styles.css v16 — Top it off Smoothie Cafe
    Brand: forest green #14502e · hot pink #e8197d · leaf #6fbf44
    ════════════════════════════════════════════════════ */
 
@@ -773,9 +773,9 @@ body > * { position: relative; z-index: 1; }
   padding: clamp(3rem, 6vw, 5rem) 1.25rem;
   position: relative; overflow: hidden; isolation: isolate;
   background:
-    radial-gradient(120% 140% at 15% -10%, #f24a9e 0%, transparent 55%),
-    radial-gradient(120% 140% at 100% 120%, #8a0c41 0%, transparent 55%),
-    linear-gradient(135deg, #c0125f 0%, #e8197d 50%, #c0125f 100%);
+    radial-gradient(120% 140% at 15% -10%, rgba(242,74,158,.55) 0%, transparent 55%),
+    radial-gradient(120% 140% at 100% 120%, rgba(138,12,65,.55) 0%, transparent 55%),
+    linear-gradient(135deg, rgba(192,18,95,.75) 0%, rgba(232,25,125,.75) 50%, rgba(192,18,95,.75) 100%);
 }
 /* grain */
 .energy-strip::before {
@@ -788,8 +788,8 @@ body > * { position: relative; z-index: 1; }
   position: absolute; inset: 0; z-index: 0; pointer-events: none;
   width: 100%; height: 100%;
   object-fit: cover; object-position: center;
-  opacity: 0.32;
-  mix-blend-mode: luminosity;
+  opacity: 0.55;
+  mix-blend-mode: normal;
 }
 /* edge vignette so the band reads as a distinct plane (no bleed) */
 .energy-strip::after {
@@ -859,13 +859,13 @@ body > * { position: relative; z-index: 1; }
   position: absolute; inset: 0; z-index: 0; pointer-events: none;
   width: 100%; height: 100%;
   object-fit: cover; object-position: center;
-  opacity: 0.22;
-  mix-blend-mode: luminosity;
+  opacity: 0.50;
+  mix-blend-mode: normal;
 }
-/* green gradient scrim — keeps text + cards legible over the photo */
+/* green gradient scrim — lighter so photo shows through */
 .section--dark::after {
   content: ''; position: absolute; inset: 0; z-index: 0; pointer-events: none;
-  background: linear-gradient(160deg, rgba(14,58,33,.68) 0%, rgba(9,30,20,.72) 100%);
+  background: linear-gradient(160deg, rgba(14,58,33,.52) 0%, rgba(9,30,20,.58) 100%);
 }
 .section--dark::before {
   content: ''; position: absolute; inset: 0; z-index: 1; pointer-events: none;
@@ -950,13 +950,13 @@ body > * { position: relative; z-index: 1; }
   position: absolute; inset: 0; z-index: 0; pointer-events: none;
   width: 100%; height: 100%;
   object-fit: cover; object-position: center 30%;
-  opacity: 0.28;
-  mix-blend-mode: luminosity;
+  opacity: 0.55;
+  mix-blend-mode: normal;
 }
-/* dark scrim so text stays legible over the photo */
+/* dark scrim — lighter so photo shows through */
 .board::after {
   content: ''; position: absolute; inset: 0; z-index: 0; pointer-events: none;
-  background: linear-gradient(90deg, rgba(15,20,16,.72) 0%, rgba(15,20,16,.38) 55%, rgba(15,20,16,.65) 100%);
+  background: linear-gradient(90deg, rgba(15,20,16,.52) 0%, rgba(15,20,16,.22) 55%, rgba(15,20,16,.45) 100%);
 }
 .board::before {
   content: ''; position: absolute; inset: 0; z-index: 1; pointer-events: none;
