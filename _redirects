@@ -1,2 +1,5 @@
 # /old /new 301
 # Custom domain www→apex added once domain is chosen
+
+# Internal/backend docs — never served publicly
+/docs/* /404.html 404

@@ -35,5 +35,6 @@ User-agent: *
 Allow: /
 Disallow: /staff.html
 Disallow: /api/
+Disallow: /docs/
 
 Sitemap: https://top-it-off.pages.dev/sitemap.xml
