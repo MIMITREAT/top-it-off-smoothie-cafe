@@ -1,4 +1,4 @@
-/* Top it off Smoothie Cafe — Vivere Framework v6 (no client secrets) */
+/* Top it off Smoothie Cafe — Vivere Framework v7 (no client secrets) */
 (function () {
   'use strict';
   document.documentElement.classList.add('js-loaded');
@@ -19,6 +19,15 @@
     window.scrollTo({ top: 0, behavior: reduce ? 'auto' : 'smooth' });
   });
 
+  /* Sticky mobile action bar (appears after scrolling past the hero) */
+  var mobileCta = document.createElement('div');
+  mobileCta.className = 'mobile-cta';
+  mobileCta.setAttribute('aria-label', 'Quick actions');
+  mobileCta.innerHTML =
+    '<a href="menu.html" class="mobile-cta-btn mobile-cta-btn--ghost">View Menu</a>' +
+    '<a href="index.html#visit" class="mobile-cta-btn mobile-cta-btn--solid">Find Us</a>';
+  document.body.appendChild(mobileCta);
+
   /* Navbar scroll state + scroll progress + back-to-top visibility */
   var navbar = document.querySelector('.navbar');
   var progress = document.querySelector('.scroll-progress');
@@ -26,6 +35,7 @@
     var y = window.scrollY || window.pageYOffset;
     if (navbar) navbar.classList.toggle('is-scrolled', y > 8);
     toTop.classList.toggle('is-visible', y > 600);
+    mobileCta.classList.toggle('is-visible', y > 600);
     if (progress) {
       var h = document.documentElement.scrollHeight - window.innerHeight;
       progress.style.width = (h > 0 ? (y / h) * 100 : 0) + '%';
